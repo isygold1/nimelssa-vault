@@ -1,0 +1,13 @@
+{
+  "version": "1.2.0",
+  "versionCode": 4,
+  "apkUrl": "downloads/NIMELSSA-Vault-v1.2.0.apk",
+  "sizeBytes": 4620557,
+  "installedSizeLabel": "~18 MB",
+  "sha256": "52c31dc7b0a2e14dba2e90a166fe96138d6342dc724262b0e7132ce17169a04b",
+  "certSha1": "c6a59025ddc8ad47458d99b394607db97d2a887c",
+  "releasedAt": "2026-11-05",
+  "minAndroid": "8.0",
+  "minSdk": 26,
+  "notesUrl": "release-notes.html"
+}

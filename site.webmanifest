@@ -1,0 +1,27 @@
+{
+  "name": "NIMELSSA Vault",
+  "short_name": "Vault",
+  "description": "Your go-to MLS library — the signed Android app and release notes for NIMELSSA Vault.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#020617",
+  "theme_color": "#0B0F17",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "assets/img/crest.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/crest.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
