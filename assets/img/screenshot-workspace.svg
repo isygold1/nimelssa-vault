@@ -32,10 +32,10 @@
   <path d="M614 127a12 12 0 0 0-24 0c0 14-6 14-6 18h36c0-4-6-4-6-18" fill="none" stroke="#CBD5E1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
   <circle cx="614" cy="112" r="3" fill="#2DD4BF"/>
   <circle cx="674" cy="132" r="22" fill="#134E4A"/>
-  <text x="674" y="140" fill="#5EEAD4" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">I</text>
+  <text x="674" y="140" fill="#5EEAD4" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">J</text>
 
   <text x="40" y="236" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="22">Good evening,</text>
-  <text x="40" y="282" fill="#F1F5F9" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="-1">Israel</text>
+  <text x="40" y="282" fill="#F1F5F9" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="-1">Joe</text>
   <text x="40" y="320" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">What are you studying today?</text>
 
   <rect x="40" y="358" width="640" height="64" rx="20" fill="#0F172A" stroke="#1E293B"/>
