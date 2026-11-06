@@ -45,13 +45,13 @@ Static download site for NIMELSSA Vault, the academic resource app for Medical L
    git commit -m "site: add NIMELSSA Vault v1.3.0 download site"
    git push -u origin main
    ```
-   Enable Pages once in the repository settings: **Settings → Pages → Build and deployment → Deploy from a branch → `main` / (root)**. The site is then served at `https://vault.nimelssaunilorin.com/`.
-   The repository includes a `CNAME` file for `vault.nimelssaunilorin.com`. At the DNS provider, add a `CNAME` record for `vault` pointing to `isygold1.github.io`, then enable **Enforce HTTPS** in Pages settings after GitHub verifies the domain. GitHub Pages redirects the `github.io` URL to the custom domain, so the site is unreachable until that DNS record resolves.
+   Enable Pages once in the repository settings: **Settings → Pages → Build and deployment → Deploy from a branch → `main` / (root)**. The site is then served at `https://isygold1.github.io/nimelssa-vault/`.
+   No `CNAME` file is deployed; the site uses the default GitHub Pages project URL. To add a custom domain later, register the domain, add a `CNAME` file, and configure DNS and HTTPS in Pages settings.
 4. Verify the deployment:
    ```bash
-   curl -sSI https://vault.nimelssaunilorin.com/
-   curl -sSI https://vault.nimelssaunilorin.com/downloads/NIMELSSA-Vault-v1.3.0.apk
-   curl -sSL https://vault.nimelssaunilorin.com/downloads/NIMELSSA-Vault-v1.3.0.apk | sha256sum
+   curl -sSI https://isygold1.github.io/nimelssa-vault/
+   curl -sSI https://isygold1.github.io/nimelssa-vault/downloads/NIMELSSA-Vault-v1.3.0.apk
+   curl -sSL https://isygold1.github.io/nimelssa-vault/downloads/NIMELSSA-Vault-v1.3.0.apk | sha256sum
    ```
    Compare the checksum with `release.json`. The APK links use the HTML `download` attribute; GitHub Pages cannot set a `Content-Disposition` header. Verify the MIME type after publishing.
 5. Keep the fallback hosts separate: Cloudflare uses `_headers`; Firebase Hosting uses `firebase.json`. Neither file is copied to GitHub Pages. Both fallbacks inherit the same noindex pages and robots policy.
@@ -63,7 +63,7 @@ Static download site for NIMELSSA Vault, the academic resource app for Medical L
 - **APK placement and filename:** keep the signed APK at `downloads/NIMELSSA-Vault-v1.3.0.apk`. If the filename changes, update every `data-download-link` fallback href, `release.json`, and the Cloudflare `_headers` / Firebase `firebase.json` filenames if those fallbacks are used.
 - **GitHub Pages header limitation:** GitHub Pages does not support custom `Content-Type`, `Content-Disposition`, `X-Robots-Tag`, or cache-control headers. The APK links already have `download`, which makes browsers download the same-origin file; the server header requirement is only met by the Cloudflare or Firebase fallbacks.
 - **Noindex is best effort:** both pages have `noindex, nofollow, noarchive`; `robots.txt` disallows `/downloads/`; no sitemap is deployed. GitHub Pages cannot set `X-Robots-Tag`. The site remains publicly accessible to anyone with the URL. This is not access control.
-- **Custom domain:** `https://vault.nimelssaunilorin.com/` is used in canonical links, Open Graph tags, and JSON-LD. The repository root and `dist/` contain a `CNAME` file with `vault.nimelssaunilorin.com`; the DNS provider needs `vault` → `isygold1.github.io`. Update every absolute URL and the `CNAME` file if the domain changes.
+- **Default Pages URL:** `https://isygold1.github.io/nimelssa-vault/` is used in canonical links, Open Graph tags, JSON-LD, and download links. No `CNAME` file is deployed. To add a custom domain later, register it, add a `CNAME` file, and update every absolute URL.
 - **Dedicated site repository:** the site lives in `isygold1/nimelssa-vault` on `main`. The app repository's production branch remains `test3`. The separate public `isygold1/nimelssa-backup` repository is only the Firestore dump tool; do not add site files there, and do not reuse its old Pages URL.
 - **Screenshots:** the four previews are SVGs in `assets/img/` (`720×1560`). They can be replaced with real device captures at the same aspect ratio; update both the `src` and the lightbox `data-full` paths if the filenames change.
 - **Manifest and icons:** `site.webmanifest` uses `start_url: "./"` and `scope: "./"` for the GitHub Pages project path. It uses the 512×512 crest at `assets/img/crest.png` for both `any` and `maskable` purposes.
