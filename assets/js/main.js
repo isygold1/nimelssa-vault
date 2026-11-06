@@ -33,6 +33,22 @@
     return `${hash.slice(0, 8)}…${hash.slice(-4)}`;
   };
 
+  const formatCount = (value) => {
+    const count = Number(value);
+    if (!Number.isFinite(count) || count < 0) return '0';
+    return new Intl.NumberFormat('en-GB').format(count);
+  };
+
+  const applyDownloadCounts = (counts) => {
+    if (!counts || typeof counts !== 'object') return;
+    Object.entries(counts).forEach(([version, value]) => {
+      const count = Number(value);
+      if (!Number.isFinite(count) || count < 0) return;
+      setAll(`[data-download-count="${version}"]`, formatCount(count));
+      setAll(`[data-download-label="${version}"]`, count === 1 ? 'download' : 'downloads');
+    });
+  };
+
   const applyRelease = (data) => {
     if (!data || typeof data !== 'object') return;
 
@@ -62,6 +78,28 @@
         link.setAttribute('href', data.notesUrl);
       });
     }
+
+    if (data.downloads) applyDownloadCounts(data.downloads);
+  };
+
+  const refreshDownloadCounts = async () => {
+    try {
+      const response = await fetch('https://api.github.com/repos/isygold1/nimelssa-vault/releases?per_page=10', {
+        cache: 'no-store',
+        headers: { Accept: 'application/vnd.github+json' },
+      });
+      if (!response.ok) return;
+      const releases = await response.json();
+      const counts = {};
+      releases.forEach((release) => {
+        const version = String(release.tag_name || '').replace(/^v/, '');
+        const asset = (release.assets || []).find((item) => item.name === `NIMELSSA-Vault-v${version}.apk`);
+        if (asset && Number.isFinite(asset.download_count)) counts[version] = asset.download_count;
+      });
+      if (Object.keys(counts).length) applyDownloadCounts(counts);
+    } catch {
+      // Keep the cached counts from release.json.
+    }
   };
 
   fetch('release.json', { cache: 'no-store' })
@@ -73,6 +111,8 @@
     .catch(() => {
       // The page keeps the last-known values embedded in the HTML.
     });
+
+  refreshDownloadCounts();
 
   const header = $('#site-header');
   if (header) {
