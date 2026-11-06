@@ -1222,6 +1222,71 @@ h4 {
   color: #FCD34D;
   font-weight: 700;
 }
+/* Release history */
+
+.release-history {
+  display: grid;
+  gap: 14px;
+}
+
+.release-history-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.05), rgba(15, 23, 42, 0.82));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.release-history-main {
+  min-width: 0;
+}
+
+.release-history-main h3 {
+  margin: 0 0 4px;
+  font-family: var(--mono);
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+}
+
+.release-history-main p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.release-history-main p:last-child {
+  margin-bottom: 0;
+}
+
+.release-history-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  min-width: 190px;
+  flex-shrink: 0;
+}
+
+.release-history-actions .text-link {
+  justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .release-history-card {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .release-history-actions {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 /* Download / release card */
 
 .release-card {

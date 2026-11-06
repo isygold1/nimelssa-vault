@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>NIMELSSA Vault v1.2.0 — Release Notes</title>
+  <meta name="description" content="Release notes for NIMELSSA Vault v1.2.0: release signing, a download folder that survives reinstall, admin duplicate cleanup, reader chrome, general textbooks, and security hardening.">
+  <meta name="theme-color" content="#0B0F17">
+  <meta name="color-scheme" content="dark">
+
+  <link rel="icon" type="image/png" href="assets/img/crest.png">
+  <link rel="apple-touch-icon" href="assets/img/crest.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="canonical" href="https://vault.nimelssaunilorin.com/release-notes-v1.2.0.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="NIMELSSA Vault">
+  <meta property="og:title" content="NIMELSSA Vault v1.2.0 — Release Notes">
+  <meta property="og:description" content="Release signing, download folder restore, admin duplicate cleanup, reader chrome, general textbooks, and security hardening.">
+  <meta property="og:url" content="https://vault.nimelssaunilorin.com/release-notes-v1.2.0.html">
+  <meta property="og:image" content="https://vault.nimelssaunilorin.com/assets/img/crest.png">
+  <meta property="og:image:alt" content="NIMELSSA emblem">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NIMELSSA Vault v1.2.0 — Release Notes">
+  <meta name="twitter:description" content="Release signing, download folder restore, admin duplicate cleanup, reader chrome, general textbooks, and security hardening.">
+  <meta name="twitter:image" content="https://vault.nimelssaunilorin.com/assets/img/crest.png">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/release-notes.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5m0 3h.01"/></symbol>
+  </svg>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="NIMELSSA Vault home">
+        <img class="brand-crest" src="assets/img/crest.png" alt="" width="36" height="36">
+        <span class="brand-name">NIMELSSA <b>VAULT</b></span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#screens">Screenshots</a>
+        <a href="index.html#install">Install</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#releases">Releases</a>
+        <a class="is-active" href="release-notes-v1.2.0.html">Release notes</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary btn-small header-download" href="#download">Download</a>
+        <a class="icon-btn mobile-download" href="#download" aria-label="Go to download">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-download"/></svg>
+        </a>
+        <button class="icon-btn menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-menu"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <dialog class="mobile-menu" id="mobile-menu" aria-label="Menu">
+    <div class="mobile-menu-top">
+      <a class="brand" href="index.html" aria-label="NIMELSSA Vault home">
+        <img class="brand-crest" src="assets/img/crest.png" alt="" width="36" height="36">
+        <span class="brand-name">NIMELSSA <b>VAULT</b></span>
+      </a>
+      <button class="icon-btn" type="button" data-close-menu aria-label="Close menu">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-close"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#screens">Screenshots</a>
+      <a href="index.html#install">Install</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#releases">Releases</a>
+      <a href="release-notes-v1.2.0.html">Release notes</a>
+      <a class="btn btn-primary btn-lg" href="#download">Download</a>
+    </nav>
+  </dialog>
+
+  <main id="main">
+    <section class="notes-hero" aria-labelledby="notes-title">
+      <div class="container">
+        <a class="back-link" href="index.html">← Back to NIMELSSA Vault</a>
+        <p class="eyebrow">Release notes</p>
+        <h1 id="notes-title">NIMELSSA Vault <span class="text-accent">v1.2.0</span></h1>
+        <p class="notes-summary">v1.2.0 is the first release-signed build of NIMELSSA Vault. It fixes the Activity Result crash that broke the storage folder picker, adds a user-chosen download folder that survives reinstalls, and gives admins a safe way to remove duplicate cards from a course shelf. It also includes reader chrome polish, cross-level general textbooks, and proposal/notification hardening.</p>
+        <p class="notes-meta">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Previous release</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span>Released <span>5 Nov 2026</span></span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span><span>4.6 MB</span> download</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span><span>~18 MB</span> installed before downloads</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span>Android 8.0+</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section notes-section">
+      <div class="container notes-layout">
+        <article class="notes-content">
+          <div class="callout callout-warning">
+            <svg class="icon callout-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-alert"/></svg>
+            <div><strong>First release-signed build.</strong> Coming from v1.1.1 (debug-signed)? Uninstall it once before installing v1.2.0 — the signing keys differ. Later release-signed builds update in place.</div>
+          </div>
+
+          <section id="summary">
+            <h2>Summary</h2>
+            <p>v1.2.0 is the first release-signed build of NIMELSSA Vault. It fixes the Activity Result crash that broke the storage folder picker, adds a user-chosen download folder that survives reinstalls, and gives admins a safe way to remove duplicate cards from a course shelf. It also includes reader chrome polish, cross-level general textbooks, and proposal/notification hardening.</p>
+          </section>
+
+          <section id="features">
+            <h2>Key Features</h2>
+            <ul>
+              <li><strong>Download location that survives a reinstall:</strong> choose a folder in Settings or from the Downloads prompt; saved files are mirrored there and restored when the folder is picked again.</li>
+              <li><strong>Admin duplicate cleanup:</strong> cards for the same Drive file, or for two uploads with identical MD5s, are flagged on the course shelf. An admin can delete the duplicate card for everyone without deleting the Drive file.</li>
+              <li><strong>Activity Result crash fixed:</strong> <code>androidx.fragment:fragment:1.6.2</code> overrides the old transitive version, so the storage folder picker and other Activity Result launchers no longer crash.</li>
+              <li><strong>Reader chrome:</strong> the toolbar and bottom navigation hide as you scroll down and return when you scroll back up.</li>
+              <li><strong>General textbooks across levels:</strong> a textbook with a blank course code and “All Levels” is saved once and appears on every level shelf.</li>
+              <li><strong>Security hardening:</strong> proposal links are validated and notification spoofing paths are closed.</li>
+            </ul>
+          </section>
+
+          <section id="installation">
+            <h2>Installation</h2>
+            <ol>
+              <li>If you are on v1.1.1 (debug-signed), uninstall it once. Back up anything you need first.</li>
+              <li>Install <code>NIMELSSA-Vault-v1.2.0.apk</code> from the release assets (the download card on this page).</li>
+              <li>Sign in. Firebase-backed courses, resources, proposals, and your profile return from Firestore.</li>
+              <li>Choose a Download location in Settings (or on the first save prompt) so future downloads survive a reinstall.</li>
+              <li>Later release-signed builds update in place; no uninstall is needed.</li>
+            </ol>
+          </section>
+
+          <section id="configuration">
+            <h2>Configuration</h2>
+            <ul>
+              <li>No new required keys or <code>google-services.json</code> changes.</li>
+              <li><code>firestore.rules</code> changed in this release branch and must be published in the Firebase Console if the new rules are not already live.</li>
+              <li>The download folder is a user-selected Android SAF folder; the app writes mirrored copies under per-course folders. It is not a Firebase setting.</li>
+            </ul>
+          </section>
+
+          <section id="changelog">
+            <h2>Changelog</h2>
+
+            <h3>Added</h3>
+            <ul>
+              <li>Download folder picker, mirroring, and reinstall restore.</li>
+              <li>Admin duplicate-card cleanup on a course shelf.</li>
+              <li>Reader chrome that follows scroll direction.</li>
+              <li>General textbooks that can serve every level.</li>
+              <li>Unit tests for duplicate detection, Drive link validation, resource levels, and course-card names.</li>
+              <li>Visible empty state for an empty rep-desk level.</li>
+            </ul>
+
+            <h3>Changed</h3>
+            <ul>
+              <li>Version bumped to <code>versionCode 4</code> / <code>versionName 1.2.0</code>.</li>
+              <li>Release builds are signed and verified in CI; tag builds create a draft GitHub Release.</li>
+              <li><code>androidx.fragment</code> pinned to <code>1.6.2</code>.</li>
+              <li>README and branch/release documentation updated.</li>
+              <li>Proposal-link and notification handling hardened.</li>
+            </ul>
+
+            <h3>Fixed</h3>
+            <ul>
+              <li>Activity Result launcher crash caused by fragment 1.2.5 rejecting 31-bit request codes.</li>
+              <li>A failed resource delete no longer removes the card locally and pretends it succeeded.</li>
+              <li>Duplicate deletion now reports failure and keeps the offline snapshot in sync.</li>
+              <li>Reader chrome no longer leaves the toolbar and bottom navigation out of sync.</li>
+            </ul>
+
+            <h3>Removed</h3>
+            <p>None.</p>
+          </section>
+
+          <section id="faq">
+            <h2>FAQ</h2>
+            <div class="faq notes-faq">
+              <details class="faq-item" name="release-faq">
+                <summary><span>Will installing v1.2.0 wipe my downloads or saved data?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer">
+                  <p>If you are coming from v1.1.1, yes for local data: v1.1.1 was debug-signed, so Android requires a one-time uninstall, which clears app-private files. Firebase-backed courses, resources, proposals, and your profile return after sign-in. Downloads made in v1.2.0 can be mirrored to a folder you choose and restored after a later reinstall.</p>
+                </div>
+              </details>
+
+              <details class="faq-item" name="release-faq">
+                <summary><span>How do I remove a duplicate card?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer">
+                  <p>Open the course as an admin. Cards that are the same file as another card on that shelf show a red “Same file as another card on this shelf” warning and a “Delete this duplicate” button. Confirm the deletion; it removes the catalog card for everyone but leaves the Drive file untouched. The check is per course shelf and only works when the cards have a Drive file ID or MD5 checksum.</p>
+                </div>
+              </details>
+
+              <details class="faq-item" name="release-faq">
+                <summary><span>Where do my downloads go, and how do I keep them?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer">
+                  <p>Saved files live in the app's private storage by default, and are deleted if you uninstall. Choose a Download location in Settings (or from the Downloads screen prompt) to also mirror them into a folder you control. After a reinstall, choose the same folder again and the app restores the mirrored copies.</p>
+                </div>
+              </details>
+
+              <details class="faq-item" name="release-faq">
+                <summary><span>Is this release fully verified?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer">
+                  <p>The ff-test debug build with these fixes was device-tested, including duplicate deletion. The signed release APK passed the unit suite (52/52), the R8 release build, and <code>apksigner</code> signature verification, but it was published without a separate on-device smoke test. The Drive folder scanner remains experimental, and duplicate cleanup is limited to one course shelf and cards with a file ID or MD5.</p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section id="credits">
+            <h2>Credits</h2>
+            <div class="notes-credits">
+              <p><strong>AGBOOLA ISRAEL OLUWAGBOGO</strong><a href="mailto:israelagboola53@gmail.com">israelagboola53@gmail.com</a></p>
+            </div>
+          </section>
+        </article>
+
+        <aside class="notes-sidebar">
+          <div class="notes-card" id="download">
+            <p class="release-label"><span class="status-dot" aria-hidden="true"></span> Previous release</p>
+            <p class="release-version">v1.2.0</p>
+            <p class="release-date">Released <span>5 Nov 2026</span></p>
+            <p class="release-meta">
+              <span><span>4.6 MB</span> download</span>
+              <span class="meta-dot" aria-hidden="true">·</span>
+              <span><span>~18 MB</span> installed</span>
+              <span class="meta-dot" aria-hidden="true">·</span>
+              <span>Android 8.0+</span>
+              <span class="meta-dot" aria-hidden="true">·</span>
+              <span>Release-signed</span>
+            </p>
+
+            <a class="btn btn-primary btn-lg btn-block" href="downloads/NIMELSSA-Vault-v1.2.0.apk" download>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-download"/></svg>
+              Download APK
+            </a>
+
+            <p class="space-note">On-disk size starts at about <span>~18 MB</span> and grows mostly with the course files you download. The APK itself is <span>4.6 MB</span>.</p>
+
+            <div class="checksum">
+              <span class="checksum-label">SHA-256</span>
+              <code>52c31dc7…a04b</code>
+              <button class="copy-btn" type="button" data-full-sha="52c31dc7b0a2e14dba2e90a166fe96138d6342dc724262b0e7132ce17169a04b" aria-label="Copy SHA-256">
+                <svg class="icon copy-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-copy"/></svg>
+                <svg class="icon check-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
+              </button>
+            </div>
+
+            <a class="release-notes-link" href="index.html#download">Verify the download on the main page
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+            </a>
+          </div>
+
+          <nav class="notes-toc" aria-label="On this page">
+            <h2>On this page</h2>
+            <a href="#download">Download</a>
+            <a href="#summary">Summary</a>
+            <a href="#features">Key features</a>
+            <a href="#installation">Installation</a>
+            <a href="#configuration">Configuration</a>
+            <a href="#changelog">Changelog</a>
+            <a href="#faq">FAQ</a>
+            <a href="#credits">Credits</a>
+          </nav>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="NIMELSSA Vault home">
+            <img class="brand-crest" src="assets/img/crest.png" alt="" width="48" height="48">
+            <span class="brand-name">NIMELSSA <b>VAULT</b></span>
+          </a>
+          <p class="footer-tagline">Your go-to MLS library.</p>
+          <p>Lecture notes, past questions, textbooks, proposals, offline reading, and a cleaner course catalog — built for NIMELSSA UNILORIN.</p>
+        </div>
+
+        <nav class="footer-col" aria-label="Footer">
+          <h4>Explore</h4>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#screens">Screenshots</a>
+          <a href="index.html#install">Install</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="index.html#releases">Releases</a>
+          <a href="release-notes-v1.2.0.html">Release notes</a>
+        </nav>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:israelagboola53@gmail.com">israelagboola53@gmail.com</a>
+          <a href="mailto:israelagboola53@gmail.com?subject=NIMELSSA%20Vault%20report">Report an issue</a>
+          <a href="index.html#download">Download APK</a>
+          <a href="#main">Back to top</a>
+        </div>
+      </div>
+
+      <div class="footer-legal">
+        <p><strong>Independent student project.</strong> Not affiliated with or endorsed by NIMELSSA or the University of Ilorin. The NIMELSSA emblem is used with permission of the NIMELSSA President. AI assistance tools were used in the creation and debugging of this project.</p>
+        <p>Built by <strong>AGBOOLA ISRAEL OLUWAGBOGO</strong> · <a href="mailto:israelagboola53@gmail.com">israelagboola53@gmail.com</a></p>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 AGBOOLA ISRAEL OLUWAGBOGO. All rights reserved. NIMELSSA Vault is proprietary.</span>
+        <span><span>v1.2.0</span> · Android 8.0+ · Release-signed</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

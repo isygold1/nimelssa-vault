@@ -4,27 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>NIMELSSA Vault v1.2.0 — Release Notes</title>
-  <meta name="description" content="Release notes for NIMELSSA Vault v1.2.0: release signing, a download folder that survives reinstall, admin duplicate cleanup, reader chrome, general textbooks, and security hardening.">
+  <title>NIMELSSA Vault v1.3.0 — Release Notes</title>
+  <meta name="description" content="Release notes for NIMELSSA Vault v1.3.0: verified-email access, admin approval, rep vouching, a full-screen access gate, server-side Firestore rules, and verification-before-email-change.">
   <meta name="theme-color" content="#0B0F17">
   <meta name="color-scheme" content="dark">
 
   <link rel="icon" type="image/png" href="assets/img/crest.png">
   <link rel="apple-touch-icon" href="assets/img/crest.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="canonical" href="https://isygold1.github.io/nimelssa-vault/release-notes.html">
+  <link rel="canonical" href="https://vault.nimelssaunilorin.com/release-notes.html">
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="NIMELSSA Vault">
-  <meta property="og:title" content="NIMELSSA Vault v1.2.0 — Release Notes">
-  <meta property="og:description" content="Release signing, download folder restore, admin duplicate cleanup, reader chrome, general textbooks, and security hardening.">
-  <meta property="og:url" content="https://isygold1.github.io/nimelssa-vault/release-notes.html">
-  <meta property="og:image" content="https://isygold1.github.io/nimelssa-vault/assets/img/crest.png">
+  <meta property="og:title" content="NIMELSSA Vault v1.3.0 — Release Notes">
+  <meta property="og:description" content="Verified-email access, admin approval, rep vouching, a full-screen access gate, and server-side Firestore enforcement.">
+  <meta property="og:url" content="https://vault.nimelssaunilorin.com/release-notes.html">
+  <meta property="og:image" content="https://vault.nimelssaunilorin.com/assets/img/crest.png">
   <meta property="og:image:alt" content="NIMELSSA emblem">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="NIMELSSA Vault v1.2.0 — Release Notes">
-  <meta name="twitter:description" content="Release signing, download folder restore, admin duplicate cleanup, reader chrome, general textbooks, and security hardening.">
-  <meta name="twitter:image" content="https://isygold1.github.io/nimelssa-vault/assets/img/crest.png">
+  <meta name="twitter:title" content="NIMELSSA Vault v1.3.0 — Release Notes">
+  <meta name="twitter:description" content="Verified-email access, admin approval, rep vouching, a full-screen access gate, and server-side Firestore enforcement.">
+  <meta name="twitter:image" content="https://vault.nimelssaunilorin.com/assets/img/crest.png">
 
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/release-notes.css">
@@ -55,6 +55,7 @@
         <a href="index.html#screens">Screenshots</a>
         <a href="index.html#install">Install</a>
         <a href="index.html#faq">FAQ</a>
+        <a href="index.html#releases">Releases</a>
         <a class="is-active" href="release-notes.html">Release notes</a>
       </nav>
 
@@ -85,6 +86,7 @@
       <a href="index.html#screens">Screenshots</a>
       <a href="index.html#install">Install</a>
       <a href="index.html#faq">FAQ</a>
+      <a href="index.html#releases">Releases</a>
       <a href="release-notes.html">Release notes</a>
       <a class="btn btn-primary btn-lg" href="#download">Download</a>
     </nav>
@@ -95,13 +97,13 @@
       <div class="container">
         <a class="back-link" href="index.html">← Back to NIMELSSA Vault</a>
         <p class="eyebrow">Release notes</p>
-        <h1 id="notes-title">NIMELSSA Vault <span class="text-accent">v1.2.0</span></h1>
-        <p class="notes-summary">v1.2.0 is the first release-signed build of NIMELSSA Vault. It fixes the Activity Result crash that broke the storage folder picker, adds a user-chosen download folder that survives reinstalls, and gives admins a safe way to remove duplicate cards from a course shelf. It also includes reader chrome polish, cross-level general textbooks, and proposal/notification hardening.</p>
+        <h1 id="notes-title">NIMELSSA Vault <span class="text-accent">v1.3.0</span></h1>
+        <p class="notes-summary">v1.3.0 adds the verified-email access gate: any email address can be used, but it must be verified, and new students need admin approval before shared content opens. Reps can vouch for their level, admins make the final call, and Firestore rules enforce the gate on the server.</p>
         <p class="notes-meta">
           <span class="status-dot" aria-hidden="true"></span>
           <span>Latest release</span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span>Released <span data-release-date>5 Nov 2026</span></span>
+          <span>Released <span data-release-date>6 Nov 2026</span></span>
           <span class="meta-dot" aria-hidden="true">·</span>
           <span><span data-release-size>4.6 MB</span> download</span>
           <span class="meta-dot" aria-hidden="true">·</span>
@@ -117,23 +119,25 @@
         <article class="notes-content">
           <div class="callout callout-warning">
             <svg class="icon callout-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-alert"/></svg>
-            <div><strong>First release-signed build.</strong> Coming from v1.1.1 (debug-signed)? Uninstall it once before installing v1.2.0 — the signing keys differ. Later release-signed builds update in place.</div>
+            <div><strong>Access gate is live.</strong> Existing students without an approved profile will see the request screen. Staff accounts bypass the approval flag but still need a verified email. v1.2.0 installs update in place; v1.1.1 still needs a one-time uninstall.</div>
           </div>
 
           <section id="summary">
             <h2>Summary</h2>
-            <p>v1.2.0 is the first release-signed build of NIMELSSA Vault. It fixes the Activity Result crash that broke the storage folder picker, adds a user-chosen download folder that survives reinstalls, and gives admins a safe way to remove duplicate cards from a course shelf. It also includes reader chrome polish, cross-level general textbooks, and proposal/notification hardening.</p>
+            <p>v1.3.0 is a security and membership release. It adds a blocking access screen before the workspace, requires a verified Firebase Auth email, and routes new students through an access request that a class rep can vouch for and an admin can approve or reject. The same rules are enforced in Firestore, not only in the UI. Existing v1.2.0 installs update in place because the release signing key is unchanged.</p>
           </section>
 
           <section id="features">
             <h2>Key Features</h2>
             <ul>
-              <li><strong>Download location that survives a reinstall:</strong> choose a folder in Settings or from the Downloads prompt; saved files are mirrored there and restored when the folder is picked again.</li>
-              <li><strong>Admin duplicate cleanup:</strong> cards for the same Drive file, or for two uploads with identical MD5s, are flagged on the course shelf. An admin can delete the duplicate card for everyone without deleting the Drive file.</li>
-              <li><strong>Activity Result crash fixed:</strong> <code>androidx.fragment:fragment:1.6.2</code> overrides the old transitive version, so the storage folder picker and other Activity Result launchers no longer crash.</li>
-              <li><strong>Reader chrome:</strong> the toolbar and bottom navigation hide as you scroll down and return when you scroll back up.</li>
-              <li><strong>General textbooks across levels:</strong> a textbook with a blank course code and “All Levels” is saved once and appears on every level shelf.</li>
-              <li><strong>Security hardening:</strong> proposal links are validated and notification spoofing paths are closed.</li>
+              <li><strong>Verified-email gate:</strong> any email address is accepted, but Firebase Auth must confirm it before the app opens shared content.</li>
+              <li><strong>Admin approval:</strong> new students submit their name, matric number, and level. A rep in the same level can vouch; only an admin can set the final approved flag.</li>
+              <li><strong>Rep vouch queue:</strong> reps see requests for their own level and cannot vouch for themselves or approve the request outright.</li>
+              <li><strong>Blocking access screen:</strong> unverified, pending, vouched, and rejected states each get a clear next action, including resend verification, notify a rep/admin, check status, and sign out.</li>
+              <li><strong>Server-side enforcement:</strong> Firestore rules require <code>email_verified</code> plus <code>approved == true</code> for students, and staff roles bypass only the approval flag.</li>
+              <li><strong>MLS matric check:</strong> signup and access requests require the department-shaped <code>XX/XXPWXXX</code> matric number.</li>
+              <li><strong>Safer email changes:</strong> changing the account email now uses verification-before-update; the old address stays active until the new one is confirmed.</li>
+              <li><strong>Offline reading preserved:</strong> downloaded files, the PDF reader, and the download-folder restore flow remain available after approval.</li>
             </ul>
           </section>
 
@@ -141,19 +145,22 @@
             <h2>Installation</h2>
             <ol>
               <li>If you are on v1.1.1 (debug-signed), uninstall it once. Back up anything you need first.</li>
-              <li>Install <code>NIMELSSA-Vault-v1.2.0.apk</code> from the release assets (the download card on this page).</li>
-              <li>Sign in. Firebase-backed courses, resources, proposals, and your profile return from Firestore.</li>
-              <li>Choose a Download location in Settings (or on the first save prompt) so future downloads survive a reinstall.</li>
-              <li>Later release-signed builds update in place; no uninstall is needed.</li>
+              <li>Install <code>NIMELSSA-Vault-v1.3.0.apk</code> from the release assets or the download card on this page.</li>
+              <li>Open the app and sign in. Verify your email if the gate asks for it.</li>
+              <li>Submit an access request with your name, matric number, and level. A rep can vouch; an admin approves.</li>
+              <li>After approval, choose a Download location in Settings if you want saved files to survive a reinstall.</li>
+              <li>v1.2.0 and later update in place; no uninstall is needed for this update.</li>
             </ol>
           </section>
 
           <section id="configuration">
             <h2>Configuration</h2>
             <ul>
-              <li>No new required keys or <code>google-services.json</code> changes.</li>
-              <li><code>firestore.rules</code> changed in this release branch and must be published in the Firebase Console if the new rules are not already live.</li>
-              <li>The download folder is a user-selected Android SAF folder; the app writes mirrored copies under per-course folders. It is not a Firebase setting.</li>
+              <li>No new required keys and no <code>google-services.json</code> changes.</li>
+              <li><code>firestore.rules</code> is the source of truth and was deployed for this release. It now gates shared reads and writes on verified email plus approval or a staff role.</li>
+              <li>Staff accounts need a verified email even though they bypass the student approval flag.</li>
+              <li>Existing students without <code>approved = true</code> must request access; there is no automatic backfill.</li>
+              <li>The download folder remains a user-selected Android SAF folder and is not a Firebase setting.</li>
             </ul>
           </section>
 
@@ -162,29 +169,28 @@
 
             <h3>Added</h3>
             <ul>
-              <li>Download folder picker, mirroring, and reinstall restore.</li>
-              <li>Admin duplicate-card cleanup on a course shelf.</li>
-              <li>Reader chrome that follows scroll direction.</li>
-              <li>General textbooks that can serve every level.</li>
-              <li>Unit tests for duplicate detection, Drive link validation, resource levels, and course-card names.</li>
-              <li>Visible empty state for an empty rep-desk level.</li>
+              <li>Full-screen access gate with verification, request, notify, check-status, and sign-out actions.</li>
+              <li><code>access_requests/{uid}</code> queue with <code>pending</code>, <code>vouched</code>, <code>approved</code>, and <code>rejected</code> states.</li>
+              <li>Rep vouching for the same level; admin final approval and rejection.</li>
+              <li>Firestore rules for verified email, approval, access requests, and staff bypass.</li>
+              <li>Verification-before-email-change flow.</li>
+              <li>Admin and rep access-request review cards with expanding pill chips.</li>
             </ul>
 
             <h3>Changed</h3>
             <ul>
-              <li>Version bumped to <code>versionCode 4</code> / <code>versionName 1.2.0</code>.</li>
-              <li>Release builds are signed and verified in CI; tag builds create a draft GitHub Release.</li>
-              <li><code>androidx.fragment</code> pinned to <code>1.6.2</code>.</li>
-              <li>README and branch/release documentation updated.</li>
-              <li>Proposal-link and notification handling hardened.</li>
+              <li>Version bumped to <code>versionCode 5</code> / <code>versionName 1.3.0</code>.</li>
+              <li>Shared content reads now require a verified email and approval for students.</li>
+              <li>Signup and access requests require a valid <code>XX/XXPWXXX</code> matric number.</li>
+              <li>Admin approval writes the student's matric number and approval status.</li>
+              <li>Release notes and website now include a release history section.</li>
             </ul>
 
             <h3>Fixed</h3>
             <ul>
-              <li>Activity Result launcher crash caused by fragment 1.2.5 rejecting 31-bit request codes.</li>
-              <li>A failed resource delete no longer removes the card locally and pretends it succeeded.</li>
-              <li>Duplicate deletion now reports failure and keeps the offline snapshot in sync.</li>
-              <li>Reader chrome no longer leaves the toolbar and bottom navigation out of sync.</li>
+              <li>Email changes no longer switch the account address before the new address is verified.</li>
+              <li>Pending, vouched, rejected, and unverified accounts get explicit next actions instead of a dead end.</li>
+              <li>Reps can no longer vouch outside their level or for their own account.</li>
             </ul>
 
             <h3>Removed</h3>
@@ -195,30 +201,30 @@
             <h2>FAQ</h2>
             <div class="faq notes-faq">
               <details class="faq-item" name="release-faq">
-                <summary><span>Will installing v1.2.0 wipe my downloads or saved data?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <summary><span>Will updating to v1.3.0 wipe my downloads or saved data?</span><span class="faq-icon" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
-                  <p>If you are coming from v1.1.1, yes for local data: v1.1.1 was debug-signed, so Android requires a one-time uninstall, which clears app-private files. Firebase-backed courses, resources, proposals, and your profile return after sign-in. Downloads made in v1.2.0 can be mirrored to a folder you choose and restored after a later reinstall.</p>
+                  <p>If you are on v1.2.0, no: it uses the same release signing key, so v1.3.0 updates in place. If you are still on v1.1.1 (debug-signed), Android requires a one-time uninstall, which clears app-private files. Firebase-backed courses, resources, proposals, and your profile return after sign-in; mirrored downloads can be restored by choosing the same Download location again.</p>
                 </div>
               </details>
 
               <details class="faq-item" name="release-faq">
-                <summary><span>How do I remove a duplicate card?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <summary><span>Do I need a Unilorin email address?</span><span class="faq-icon" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
-                  <p>Open the course as an admin. Cards that are the same file as another card on that shelf show a red “Same file as another card on this shelf” warning and a “Delete this duplicate” button. Confirm the deletion; it removes the catalog card for everyone but leaves the Drive file untouched. The check is per course shelf and only works when the cards have a Drive file ID or MD5 checksum.</p>
+                  <p>No. Any email address can be verified and used. The actual MLS check is the access request: your matric number, a rep vouch from your level, and an admin's final approval.</p>
                 </div>
               </details>
 
               <details class="faq-item" name="release-faq">
-                <summary><span>Where do my downloads go, and how do I keep them?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <summary><span>What happens while my request is pending?</span><span class="faq-icon" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
-                  <p>Saved files live in the app's private storage by default, and are deleted if you uninstall. Choose a Download location in Settings (or from the Downloads screen prompt) to also mirror them into a folder you control. After a reinstall, choose the same folder again and the app restores the mirrored copies.</p>
+                  <p>The access screen stays up and shared content remains locked. You can resend the verification email, notify a rep or admin, check status again, or sign out. If a rep vouches, the request moves to <code>vouched</code> and waits for an admin. A rejected request can be submitted again.</p>
                 </div>
               </details>
 
               <details class="faq-item" name="release-faq">
                 <summary><span>Is this release fully verified?</span><span class="faq-icon" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
-                  <p>The ff-test debug build with these fixes was device-tested, including duplicate deletion. The signed release APK passed the unit suite (52/52), the R8 release build, and <code>apksigner</code> signature verification, but it was published without a separate on-device smoke test. The Drive folder scanner remains experimental, and duplicate cleanup is limited to one course shelf and cards with a file ID or MD5.</p>
+                  <p>The access-gate build was device-tested end to end by the maintainer. The signed release APK passes the unit suite, the R8 release build, and <code>apksigner</code> signature verification in CI. The Drive folder scanner remains experimental, and no device-binding, watermarking, or access-log feature is included in this release.</p>
                 </div>
               </details>
             </div>
@@ -235,8 +241,8 @@
         <aside class="notes-sidebar">
           <div class="notes-card" id="download">
             <p class="release-label"><span class="status-dot" aria-hidden="true"></span> Latest release</p>
-            <p class="release-version" data-release-version>v1.2.0</p>
-            <p class="release-date">Released <span data-release-date>5 Nov 2026</span></p>
+            <p class="release-version" data-release-version>v1.3.0</p>
+            <p class="release-date">Released <span data-release-date>6 Nov 2026</span></p>
             <p class="release-meta">
               <span><span data-release-size>4.6 MB</span> download</span>
               <span class="meta-dot" aria-hidden="true">·</span>
@@ -247,7 +253,7 @@
               <span>Release-signed</span>
             </p>
 
-            <a class="btn btn-primary btn-lg btn-block" href="downloads/NIMELSSA-Vault-v1.2.0.apk" download data-download-link>
+            <a class="btn btn-primary btn-lg btn-block" href="downloads/NIMELSSA-Vault-v1.3.0.apk" download data-download-link>
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-download"/></svg>
               Download APK
             </a>
@@ -256,8 +262,8 @@
 
             <div class="checksum">
               <span class="checksum-label">SHA-256</span>
-              <code data-release-sha-short>52c31dc7…a04b</code>
-              <button class="copy-btn" type="button" data-copy-sha data-full-sha="52c31dc7b0a2e14dba2e90a166fe96138d6342dc724262b0e7132ce17169a04b" aria-label="Copy SHA-256">
+              <code data-release-sha-short>200eede8…6bfb</code>
+              <button class="copy-btn" type="button" data-copy-sha data-full-sha="200eede8f4a14aabeb772a800b6afdacff2b4b6d4d42bf99980921626d596bfb" aria-label="Copy SHA-256">
                 <svg class="icon copy-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-copy"/></svg>
                 <svg class="icon check-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
               </button>
@@ -302,6 +308,7 @@
           <a href="index.html#screens">Screenshots</a>
           <a href="index.html#install">Install</a>
           <a href="index.html#faq">FAQ</a>
+          <a href="index.html#releases">Releases</a>
           <a href="release-notes.html">Release notes</a>
         </nav>
 
@@ -321,7 +328,7 @@
 
       <div class="footer-bottom">
         <span>© 2026 AGBOOLA ISRAEL OLUWAGBOGO. All rights reserved. NIMELSSA Vault is proprietary.</span>
-        <span><span data-release-version>v1.2.0</span> · Android 8.0+ · Release-signed</span>
+        <span><span data-release-version>v1.3.0</span> · Android 8.0+ · Release-signed</span>
       </div>
     </div>
   </footer>

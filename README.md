@@ -1,14 +1,15 @@
 # NIMELSSA Vault
 
-Static download site for NIMELSSA Vault, the academic resource app for Medical Laboratory Science students at the University of Ilorin. It serves the signed v1.2.0 APK, checksums, install guidance, and release notes from a public GitHub Pages site with no backend, login, or analytics.
+Static download site for NIMELSSA Vault, the academic resource app for Medical Laboratory Science students at the University of Ilorin. It serves the signed v1.3.0 APK, checksums, install guidance, release history, and release notes from a public GitHub Pages site with no backend, login, or analytics.
 
 ## Key Features
 
-- **Direct APK download:** the signed `NIMELSSA-Vault-v1.2.0.apk` is served from `downloads/` on the same origin, with no GitHub release or Drive dependency.
+- **Direct APK download:** the signed `NIMELSSA-Vault-v1.3.0.apk` is served from `downloads/` on the same origin, with no GitHub release or Drive dependency.
 - **Release integrity:** the page publishes the APK SHA-256 and signing-certificate SHA-1, with copy-to-clipboard and `sha256sum` / `apksigner` verification commands.
-- **On-site release notes:** `release-notes.html` keeps the full v1.2.0 notes public even though the app source repository is private.
+- **On-site release notes:** `release-notes.html` keeps the full v1.3.0 notes public even though the app source repository is private; `release-notes-v1.2.0.html` preserves the previous release.
+- **Release history:** the landing page has a Releases section after the FAQ with the current and previous signed builds.
 - **Search-suppressed public site:** both HTML pages carry `noindex, nofollow, noarchive`; `robots.txt` disallows `/downloads/`; no sitemap is deployed. This is best-effort Google suppression, not access control.
-- **Clear install guidance:** three install steps, the v1.1.1 debug-signed → v1.2.0 one-time uninstall caveat, and an FAQ.
+- **Clear install guidance:** three install steps, the v1.1.1 debug-signed one-time uninstall caveat, and an FAQ covering the verified-email access gate.
 - **Honest sizing:** the site shows the ≈4.6 MB download and the ≈18 MB on-disk footprint before saved files; on-disk use grows mostly with downloaded resources.
 - **Responsive dark UI:** the app's slate/teal palette, crest, phone previews, FAQ accordion, and screenshot lightbox work from small phones to desktop.
 - **No tracking:** no analytics, cookies, login, or third-party scripts. `release.json` is fetched same-origin.
@@ -41,15 +42,16 @@ Static download site for NIMELSSA Vault, the academic resource app for Medical L
    cp -R ~/projects/nimelssa-vault-website/dist/. .
    cp ~/projects/nimelssa-vault-website/README.md .
    git add .
-   git commit -m "site: add NIMELSSA Vault v1.2.0 download site"
+   git commit -m "site: add NIMELSSA Vault v1.3.0 download site"
    git push -u origin main
    ```
-   Enable Pages once in the repository settings: **Settings → Pages → Build and deployment → Deploy from a branch → `main` / (root)**. The site is then served at `https://isygold1.github.io/nimelssa-vault/`.
+   Enable Pages once in the repository settings: **Settings → Pages → Build and deployment → Deploy from a branch → `main` / (root)**. The site is then served at `https://vault.nimelssaunilorin.com/`.
+   The repository includes a `CNAME` file for `vault.nimelssaunilorin.com`. At the DNS provider, add a `CNAME` record for `vault` pointing to `isygold1.github.io`, then enable **Enforce HTTPS** in Pages settings after GitHub verifies the domain. GitHub Pages redirects the `github.io` URL to the custom domain, so the site is unreachable until that DNS record resolves.
 4. Verify the deployment:
    ```bash
-   curl -sSI https://isygold1.github.io/nimelssa-vault/
-   curl -sSI https://isygold1.github.io/nimelssa-vault/downloads/NIMELSSA-Vault-v1.2.0.apk
-   curl -sSL https://isygold1.github.io/nimelssa-vault/downloads/NIMELSSA-Vault-v1.2.0.apk | sha256sum
+   curl -sSI https://vault.nimelssaunilorin.com/
+   curl -sSI https://vault.nimelssaunilorin.com/downloads/NIMELSSA-Vault-v1.3.0.apk
+   curl -sSL https://vault.nimelssaunilorin.com/downloads/NIMELSSA-Vault-v1.3.0.apk | sha256sum
    ```
    Compare the checksum with `release.json`. The APK links use the HTML `download` attribute; GitHub Pages cannot set a `Content-Disposition` header. Verify the MIME type after publishing.
 5. Keep the fallback hosts separate: Cloudflare uses `_headers`; Firebase Hosting uses `firebase.json`. Neither file is copied to GitHub Pages. Both fallbacks inherit the same noindex pages and robots policy.
@@ -58,10 +60,10 @@ Static download site for NIMELSSA Vault, the academic resource app for Medical L
 
 - **`release.json` is the release source of truth.** It carries `version`, `versionCode`, `apkUrl`, `sizeBytes`, `installedSizeLabel`, `sha256`, `certSha1`, `releasedAt`, `minAndroid`, `minSdk`, and `notesUrl`. The page JS fetches it and updates the version, sizes, date, checksum, and download links.
 - **Static fallback values matter.** `index.html` and `release-notes.html` contain last-known values so the page still works if the fetch fails or JavaScript is unavailable. Update those fallbacks whenever you update `release.json`.
-- **APK placement and filename:** keep the signed APK at `downloads/NIMELSSA-Vault-v1.2.0.apk`. If the filename changes, update every `data-download-link` fallback href, `release.json`, and the Cloudflare `_headers` / Firebase `firebase.json` filenames if those fallbacks are used.
+- **APK placement and filename:** keep the signed APK at `downloads/NIMELSSA-Vault-v1.3.0.apk`. If the filename changes, update every `data-download-link` fallback href, `release.json`, and the Cloudflare `_headers` / Firebase `firebase.json` filenames if those fallbacks are used.
 - **GitHub Pages header limitation:** GitHub Pages does not support custom `Content-Type`, `Content-Disposition`, `X-Robots-Tag`, or cache-control headers. The APK links already have `download`, which makes browsers download the same-origin file; the server header requirement is only met by the Cloudflare or Firebase fallbacks.
 - **Noindex is best effort:** both pages have `noindex, nofollow, noarchive`; `robots.txt` disallows `/downloads/`; no sitemap is deployed. GitHub Pages cannot set `X-Robots-Tag`. The site remains publicly accessible to anyone with the URL. This is not access control.
-- **Default domain:** `https://isygold1.github.io/nimelssa-vault/` is used in canonical links, Open Graph tags, JSON-LD, and the PWA manifest. Update every absolute URL if the repository or Pages domain changes.
+- **Custom domain:** `https://vault.nimelssaunilorin.com/` is used in canonical links, Open Graph tags, and JSON-LD. The repository root and `dist/` contain a `CNAME` file with `vault.nimelssaunilorin.com`; the DNS provider needs `vault` → `isygold1.github.io`. Update every absolute URL and the `CNAME` file if the domain changes.
 - **Dedicated site repository:** the site lives in `isygold1/nimelssa-vault` on `main`. The app repository's production branch remains `test3`. The separate public `isygold1/nimelssa-backup` repository is only the Firestore dump tool; do not add site files there, and do not reuse its old Pages URL.
 - **Screenshots:** the four previews are SVGs in `assets/img/` (`720×1560`). They can be replaced with real device captures at the same aspect ratio; update both the `src` and the lightbox `data-full` paths if the filenames change.
 - **Manifest and icons:** `site.webmanifest` uses `start_url: "./"` and `scope: "./"` for the GitHub Pages project path. It uses the 512×512 crest at `assets/img/crest.png` for both `any` and `maskable` purposes.
@@ -71,10 +73,10 @@ Static download site for NIMELSSA Vault, the academic resource app for Medical L
 ## FAQ
 
 **How large is the APK, and how much space does it use?**
-The signed APK is 4,620,557 bytes (≈4.6 MB). A fresh install takes about 18 MB on disk before any saved resources; that footprint grows mostly with the course files downloaded. The landing page, release card, and FAQ show both numbers so users do not confuse the download size with installed size.
+The signed APK is 4,641,661 bytes (≈4.6 MB). A fresh install takes about 18 MB on disk before any saved resources; that footprint grows mostly with the course files downloaded. The landing page, release card, and FAQ show both numbers so users do not confuse the download size with installed size.
 
 **How do I ship a new app version?**
-Replace the APK in `downloads/`, update `release.json` and the fallback values in both HTML pages, recompute the SHA-256 and certificate fingerprint, update `release-notes.html`, and rebuild `dist/`. Copy the public files to `isygold1/nimelssa-vault`, commit, and push. Do not add a sitemap. If the Cloudflare or Firebase fallback is used, update its APK filename as well.
+Replace the APK in `downloads/`, update `release.json` and the fallback values in both HTML pages, recompute the SHA-256 and certificate fingerprint, update `release-notes.html` and the Releases section, and rebuild `dist/`. Copy the public files to `isygold1/nimelssa-vault`, commit, and push. Do not add a sitemap. If the Cloudflare or Firebase fallback is used, update its APK filename as well.
 
 **Will the site appear in Google search results?**
 The two HTML pages carry `noindex, nofollow, noarchive`, and the APK/download folder is disallowed in `robots.txt`. That is best-effort suppression, not a guarantee. The Pages URL is public, the site repository is public, and anyone with the link can open the site and download the APK. For real privacy, use an access-controlled host instead of GitHub Pages.
