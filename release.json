@@ -1,16 +1,24 @@
 {
-  "version": "1.3.1",
-  "versionCode": 6,
-  "apkUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/v1.3.1/NIMELSSA-Vault-v1.3.1.apk",
-  "sizeBytes": 4641661,
+  "version": "1.3.2",
+  "versionCode": 7,
+  "apkUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/v1.3.2/NIMELSSA-Vault-v1.3.2.apk",
+  "sizeBytes": 4660997,
   "installedSizeLabel": "~18 MB",
-  "sha256": "8a8aeb60e6c35ecb9c0985c2981a40128b82c7686e97b1b15529ec6e5be1a02a",
+  "sha256": "c5b4a41869e7f5baa90cea2926f58a9b202342a141bb9277799a8cc339012a93",
   "certSha1": "c6a59025ddc8ad47458d99b394607db97d2a887c",
   "releasedAt": "2026-11-07",
   "minAndroid": "8.0",
   "minSdk": 26,
   "notesUrl": "release-notes.html",
+  "forceAfterCancels": 3,
+  "highlights": [
+    "Check for updates inside the app",
+    "Three counted Later skips per release",
+    "Blocking update card after the third skip",
+    "SHA-256, package, versionCode, and signer verification"
+  ],
   "downloads": {
+    "1.3.2": 0,
     "1.3.1": 0,
     "1.3.0": 1,
     "1.2.0": 1
