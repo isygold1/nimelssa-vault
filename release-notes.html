@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>NIMELSSA Vault v1.3.0 — Release Notes</title>
-  <meta name="description" content="Release notes for NIMELSSA Vault v1.3.0: verified-email access, admin approval, rep vouching, a full-screen access gate, server-side Firestore rules, and verification-before-email-change.">
+  <title>NIMELSSA Vault v1.3.1 — Release Notes</title>
+  <meta name="description" content="Release notes for NIMELSSA Vault v1.3.1: Android Drive API key rotation and app-restricted key. No user-facing feature changes.">
   <meta name="theme-color" content="#0B0F17">
   <meta name="color-scheme" content="dark">
 
@@ -16,14 +16,14 @@
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="NIMELSSA Vault">
-  <meta property="og:title" content="NIMELSSA Vault v1.3.0 — Release Notes">
-  <meta property="og:description" content="Verified-email access, admin approval, rep vouching, a full-screen access gate, and server-side Firestore enforcement.">
+  <meta property="og:title" content="NIMELSSA Vault v1.3.1 — Release Notes">
+  <meta property="og:description" content="Android Drive API key rotation and app-restricted key. No user-facing feature changes.">
   <meta property="og:url" content="https://isygold1.github.io/nimelssa-vault/release-notes.html">
   <meta property="og:image" content="https://isygold1.github.io/nimelssa-vault/assets/img/crest.png">
   <meta property="og:image:alt" content="NIMELSSA emblem">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="NIMELSSA Vault v1.3.0 — Release Notes">
-  <meta name="twitter:description" content="Verified-email access, admin approval, rep vouching, a full-screen access gate, and server-side Firestore enforcement.">
+  <meta name="twitter:title" content="NIMELSSA Vault v1.3.1 — Release Notes">
+  <meta name="twitter:description" content="Android Drive API key rotation and app-restricted key. No user-facing feature changes.">
   <meta name="twitter:image" content="https://isygold1.github.io/nimelssa-vault/assets/img/crest.png">
 
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -97,13 +97,13 @@
       <div class="container">
         <a class="back-link" href="index.html">← Back to NIMELSSA Vault</a>
         <p class="eyebrow">Release notes</p>
-        <h1 id="notes-title">NIMELSSA Vault <span class="text-accent">v1.3.0</span></h1>
-        <p class="notes-summary">v1.3.0 adds the verified-email access gate: any email address can be used, but it must be verified, and new students need admin approval before shared content opens. Reps can vouch for their level, admins make the final call, and Firestore rules enforce the gate on the server.</p>
+        <h1 id="notes-title">NIMELSSA Vault <span class="text-accent">v1.3.1</span></h1>
+        <p class="notes-summary">v1.3.1 is a security maintenance release. It rotates the Android Drive API key used for resource downloads and restricts the new key to the NIMELSSA Vault Android package and its signing certificates. There are no user-facing feature changes; existing installs update in place.</p>
         <p class="notes-meta">
           <span class="status-dot" aria-hidden="true"></span>
           <span>Latest release</span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span>Released <span data-release-date>6 Nov 2026</span></span>
+          <span>Released <span data-release-date>7 Nov 2026</span></span>
           <span class="meta-dot" aria-hidden="true">·</span>
           <span><span data-release-size>4.6 MB</span> download</span>
           <span class="meta-dot" aria-hidden="true">·</span>
@@ -111,7 +111,7 @@
           <span class="meta-dot" aria-hidden="true">·</span>
           <span>Android 8.0+</span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span><span data-download-count="1.3.0">1</span> <span data-download-label="1.3.0">download</span></span>
+          <span><span data-download-count="1.3.1">0</span> <span data-download-label="1.3.1">downloads</span></span>
         </p>
       </div>
     </section>
@@ -121,25 +121,22 @@
         <article class="notes-content">
           <div class="callout callout-warning">
             <svg class="icon callout-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-alert"/></svg>
-            <div><strong>Access gate is live.</strong> Existing students without an approved profile will see the request screen. Staff accounts bypass the approval flag but still need a verified email. v1.2.0 installs update in place; v1.1.1 still needs a one-time uninstall.</div>
+            <div><strong>Security update.</strong> The Android Drive API key has been rotated and restricted to the NIMELSSA Vault Android app. No action is needed beyond installing v1.3.1. v1.3.0 and later update in place; v1.1.1 still needs a one-time uninstall.</div>
           </div>
 
           <section id="summary">
             <h2>Summary</h2>
-            <p>v1.3.0 is a security and membership release. It adds a blocking access screen before the workspace, requires a verified Firebase Auth email, and routes new students through an access request that a class rep can vouch for and an admin can approve or reject. The same rules are enforced in Firestore, not only in the UI. Existing v1.2.0 installs update in place because the release signing key is unchanged.</p>
+            <p>v1.3.1 is a security maintenance release. It rotates the Android Drive API key used for resource downloads and restricts the new key to the NIMELSSA Vault Android package and its release/debug signing certificates. The app's features, data model, Firestore rules, and access gate are unchanged. Existing v1.3.0 installs update in place because the release signing key is unchanged.</p>
           </section>
 
           <section id="features">
             <h2>Key Features</h2>
             <ul>
-              <li><strong>Verified-email gate:</strong> any email address is accepted, but Firebase Auth must confirm it before the app opens shared content.</li>
-              <li><strong>Admin approval:</strong> new students submit their name, matric number, and level. A rep in the same level can vouch; only an admin can set the final approved flag.</li>
-              <li><strong>Rep vouch queue:</strong> reps see requests for their own level and cannot vouch for themselves or approve the request outright.</li>
-              <li><strong>Blocking access screen:</strong> unverified, pending, vouched, and rejected states each get a clear next action, including resend verification, notify a rep/admin, check status, and sign out.</li>
-              <li><strong>Server-side enforcement:</strong> Firestore rules require <code>email_verified</code> plus <code>approved == true</code> for students, and staff roles bypass only the approval flag.</li>
-              <li><strong>MLS matric check:</strong> signup and access requests require the department-shaped <code>XX/XXPWXXX</code> matric number.</li>
-              <li><strong>Safer email changes:</strong> changing the account email now uses verification-before-update; the old address stays active until the new one is confirmed.</li>
-              <li><strong>Offline reading preserved:</strong> downloaded files, the PDF reader, and the download-folder restore flow remain available after approval.</li>
+              <li><strong>Rotated Drive API key:</strong> Android resource downloads now use a new key; the previous Android Drive key is retired.</li>
+              <li><strong>App-restricted key:</strong> the new key only works from <code>com.nimelssa.vault</code> signed with the release or debug certificate.</li>
+              <li><strong>No feature changes:</strong> courses, resources, proposals, approvals, offline reading, CBT practice, and notifications are unchanged.</li>
+              <li><strong>In-place update:</strong> v1.3.0 and later use the same release signing key, so no uninstall is needed.</li>
+              <li><strong>Desktop unaffected:</strong> the Windows client uses a separate Drive key and is not changed by this release.</li>
             </ul>
           </section>
 
@@ -147,11 +144,10 @@
             <h2>Installation</h2>
             <ol>
               <li>If you are on v1.1.1 (debug-signed), uninstall it once. Back up anything you need first.</li>
-              <li>Install <code>NIMELSSA-Vault-v1.3.0.apk</code> from the download card on this page.</li>
-              <li>Open the app and sign in. Verify your email if the gate asks for it.</li>
-              <li>Submit an access request with your name, matric number, and level. A rep can vouch; an admin approves.</li>
+              <li>Install <code>NIMELSSA-Vault-v1.3.1.apk</code> from the download card on this page.</li>
+              <li>Open the app and sign in. Verify your email and complete the access gate if prompted.</li>
               <li>After approval, choose a Download location in Settings if you want saved files to survive a reinstall.</li>
-              <li>v1.2.0 and later update in place; no uninstall is needed for this update.</li>
+              <li>v1.3.0 and later update in place; no uninstall is needed for this update.</li>
             </ol>
           </section>
 
@@ -159,9 +155,9 @@
             <h2>Configuration</h2>
             <ul>
               <li>No new required keys and no <code>google-services.json</code> changes.</li>
-              <li><code>firestore.rules</code> is the source of truth and was deployed for this release. It now gates shared reads and writes on verified email plus approval or a staff role.</li>
-              <li>Staff accounts need a verified email even though they bypass the student approval flag.</li>
-              <li>Existing students without <code>approved = true</code> must request access; there is no automatic backfill.</li>
+              <li>The Android Drive API key was rotated; the new key is embedded in the app and restricted to the Android package and signing certificates.</li>
+              <li>Firestore rules and the access gate are unchanged from v1.3.0.</li>
+              <li>The Windows desktop client uses a separate Drive key and is not affected by this Android rotation.</li>
               <li>The download folder remains a user-selected Android SAF folder and is not a Firebase setting.</li>
             </ul>
           </section>
@@ -171,62 +167,54 @@
 
             <h3>Added</h3>
             <ul>
-              <li>Full-screen access gate with verification, request, notify, check-status, and sign-out actions.</li>
-              <li><code>access_requests/{uid}</code> queue with <code>pending</code>, <code>vouched</code>, <code>approved</code>, and <code>rejected</code> states.</li>
-              <li>Rep vouching for the same level; admin final approval and rejection.</li>
-              <li>Firestore rules for verified email, approval, access requests, and staff bypass.</li>
-              <li>Verification-before-email-change flow.</li>
-              <li>Admin and rep access-request review cards with expanding pill chips.</li>
+              <li>New Android Drive API key restricted to <code>com.nimelssa.vault</code> and the release/debug signing certificates.</li>
             </ul>
 
             <h3>Changed</h3>
             <ul>
-              <li>Version bumped to <code>versionCode 5</code> / <code>versionName 1.3.0</code>.</li>
-              <li>Shared content reads now require a verified email and approval for students.</li>
-              <li>Signup and access requests require a valid <code>XX/XXPWXXX</code> matric number.</li>
-              <li>Admin approval writes the student's matric number and approval status.</li>
-              <li>Release notes and website now include a release history section.</li>
+              <li>Version bumped to <code>versionCode 6</code> / <code>versionName 1.3.1</code>.</li>
+              <li>Android resource downloads now use the rotated Drive key.</li>
             </ul>
 
             <h3>Fixed</h3>
             <ul>
-              <li>Email changes no longer switch the account address before the new address is verified.</li>
-              <li>Pending, vouched, rejected, and unverified accounts get explicit next actions instead of a dead end.</li>
-              <li>Reps can no longer vouch outside their level or for their own account.</li>
+              <li>Reduced exposure from the previous Drive key by rotating it and adding Android app restrictions.</li>
             </ul>
 
             <h3>Removed</h3>
-            <p>None.</p>
+            <ul>
+              <li>The previous unrestricted Android Drive key is retired.</li>
+            </ul>
           </section>
 
           <section id="faq">
             <h2>FAQ</h2>
             <div class="faq notes-faq">
               <details class="faq-item" name="release-faq">
-                <summary><span>Will updating to v1.3.0 wipe my downloads or saved data?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <summary><span>Will updating to v1.3.1 wipe my downloads or saved data?</span><span class="faq-icon" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
-                  <p>If you are on v1.2.0, no: it uses the same release signing key, so v1.3.0 updates in place. If you are still on v1.1.1 (debug-signed), Android requires a one-time uninstall, which clears app-private files. Firebase-backed courses, resources, proposals, and your profile return after sign-in; mirrored downloads can be restored by choosing the same Download location again.</p>
+                  <p>No. v1.3.1 uses the same release signing key as v1.3.0, so it updates in place. If you are still on v1.1.1 (debug-signed), Android requires a one-time uninstall, which clears app-private files. Firebase-backed courses, resources, proposals, and your profile return after sign-in; mirrored downloads can be restored by choosing the same Download location again.</p>
                 </div>
               </details>
 
               <details class="faq-item" name="release-faq">
-                <summary><span>Do I need a Unilorin email address?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <summary><span>Do I need to change any settings after this update?</span><span class="faq-icon" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
-                  <p>No. Any email address can be verified and used. The actual MLS check is the access request: your matric number, a rep vouch from your level, and an admin's final approval.</p>
+                  <p>No. The new Drive key is built into the app. Your sign-in, access approval, courses, downloads, and saved files are unchanged.</p>
                 </div>
               </details>
 
               <details class="faq-item" name="release-faq">
-                <summary><span>What happens while my request is pending?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <summary><span>Does this release affect the Windows desktop client?</span><span class="faq-icon" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
-                  <p>The access screen stays up and shared content remains locked. You can resend the verification email, notify a rep or admin, check status again, or sign out. If a rep vouches, the request moves to <code>vouched</code> and waits for an admin. A rejected request can be submitted again.</p>
+                  <p>No. The desktop client uses a separate Drive key and a separate configuration. This release only changes the Android app.</p>
                 </div>
               </details>
 
               <details class="faq-item" name="release-faq">
                 <summary><span>Is this release fully verified?</span><span class="faq-icon" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
-                  <p>The access-gate build was device-tested end to end by the maintainer. The signed release APK passes the unit suite, the R8 release build, and <code>apksigner</code> signature verification in CI. The Drive folder scanner remains experimental, and no device-binding, watermarking, or access-log feature is included in this release.</p>
+                  <p>The signed APK passes the unit suite, the R8 release build, and <code>apksigner</code> signature verification in CI. The release is a security key rotation with no new user-facing features; the Drive folder scanner remains experimental.</p>
                 </div>
               </details>
             </div>
@@ -243,8 +231,8 @@
         <aside class="notes-sidebar">
           <div class="notes-card" id="download">
             <p class="release-label"><span class="status-dot" aria-hidden="true"></span> Latest release</p>
-            <p class="release-version" data-release-version>v1.3.0</p>
-            <p class="release-date">Released <span data-release-date>6 Nov 2026</span></p>
+            <p class="release-version" data-release-version>v1.3.1</p>
+            <p class="release-date">Released <span data-release-date>7 Nov 2026</span></p>
             <p class="release-meta">
               <span><span data-release-size>4.6 MB</span> download</span>
               <span class="meta-dot" aria-hidden="true">·</span>
@@ -254,10 +242,10 @@
               <span class="meta-dot" aria-hidden="true">·</span>
               <span>Release-signed</span>
               <span class="meta-dot" aria-hidden="true">·</span>
-              <span><span data-download-count="1.3.0">1</span> <span data-download-label="1.3.0">download</span></span>
+              <span><span data-download-count="1.3.1">0</span> <span data-download-label="1.3.1">downloads</span></span>
             </p>
 
-            <a class="btn btn-primary btn-lg btn-block" href="https://github.com/isygold1/nimelssa-vault/releases/download/v1.3.0/NIMELSSA-Vault-v1.3.0.apk" download data-download-link>
+            <a class="btn btn-primary btn-lg btn-block" href="https://github.com/isygold1/nimelssa-vault/releases/download/v1.3.1/NIMELSSA-Vault-v1.3.1.apk" download data-download-link>
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-download"/></svg>
               Download APK
             </a>
@@ -266,8 +254,8 @@
 
             <div class="checksum">
               <span class="checksum-label">SHA-256</span>
-              <code data-release-sha-short>200eede8…6bfb</code>
-              <button class="copy-btn" type="button" data-copy-sha data-full-sha="200eede8f4a14aabeb772a800b6afdacff2b4b6d4d42bf99980921626d596bfb" aria-label="Copy SHA-256">
+              <code data-release-sha-short>8a8aeb60…a02a</code>
+              <button class="copy-btn" type="button" data-copy-sha data-full-sha="8a8aeb60e6c35ecb9c0985c2981a40128b82c7686e97b1b15529ec6e5be1a02a" aria-label="Copy SHA-256">
                 <svg class="icon copy-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-copy"/></svg>
                 <svg class="icon check-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
               </button>
@@ -332,7 +320,7 @@
 
       <div class="footer-bottom">
         <span>© 2026 AGBOOLA ISRAEL OLUWAGBOGO. All rights reserved. NIMELSSA Vault is proprietary.</span>
-        <span><span data-release-version>v1.3.0</span> · Android 8.0+ · Release-signed</span>
+        <span><span data-release-version>v1.3.1</span> · Android 8.0+ · Release-signed</span>
       </div>
     </div>
   </footer>
