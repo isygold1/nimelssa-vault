@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>NIMELSSA Vault v1.3.2 — Release Notes</title>
-  <meta name="description" content="Release notes for NIMELSSA Vault v1.3.2: in-app updater, three-lifeline update policy, and verified downloads.">
+  <title>NIMELSSA Vault v1.3.3 — Release Notes</title>
+  <meta name="description" content="Release notes for NIMELSSA Vault v1.3.3: pinned files now survive clearing the Recently opened strip.">
   <meta name="theme-color" content="#0B0F17">
   <meta name="color-scheme" content="dark">
 
@@ -16,14 +16,14 @@
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="NIMELSSA Vault">
-  <meta property="og:title" content="NIMELSSA Vault v1.3.2 — Release Notes">
-  <meta property="og:description" content="In-app updater, three-lifeline update policy, and verified downloads.">
+  <meta property="og:title" content="NIMELSSA Vault v1.3.3 — Release Notes">
+  <meta property="og:description" content="Pinned files now survive clearing the Recently opened strip.">
   <meta property="og:url" content="https://isygold1.github.io/nimelssa-vault/release-notes.html">
   <meta property="og:image" content="https://isygold1.github.io/nimelssa-vault/assets/img/crest.png">
   <meta property="og:image:alt" content="NIMELSSA emblem">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="NIMELSSA Vault v1.3.2 — Release Notes">
-  <meta name="twitter:description" content="In-app updater, three-lifeline update policy, and verified downloads.">
+  <meta name="twitter:title" content="NIMELSSA Vault v1.3.3 — Release Notes">
+  <meta name="twitter:description" content="Pinned files now survive clearing the Recently opened strip.">
   <meta name="twitter:image" content="https://isygold1.github.io/nimelssa-vault/assets/img/crest.png">
 
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -97,13 +97,13 @@
       <div class="container">
         <a class="back-link" href="index.html">← Back to NIMELSSA Vault</a>
         <p class="eyebrow">Release notes</p>
-        <h1 id="notes-title">NIMELSSA Vault <span class="text-accent">v1.3.2</span></h1>
-        <p class="notes-summary">v1.3.2 adds an in-app updater with a three-lifeline policy. The app checks for a newer versionCode on launch, offers three counted <strong>Later</strong> skips per release, then blocks on the next launch until the update is installed. Every download is verified before Android's installer opens.</p>
+        <h1 id="notes-title">NIMELSSA Vault <span class="text-accent">v1.3.3</span></h1>
+        <p class="notes-summary">v1.3.3 is a bug-fix release: pinned files now survive clearing the Recently opened strip. The X clears unpinned history only, pinned files stay put, and the eight-entry cap is unchanged.</p>
         <p class="notes-meta">
           <span class="status-dot" aria-hidden="true"></span>
           <span>Latest release</span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span>Released <span data-release-date>7 Nov 2026</span></span>
+          <span>Released <span data-release-date>9 Nov 2026</span></span>
           <span class="meta-dot" aria-hidden="true">·</span>
           <span><span data-release-size>4.6 MB</span> download</span>
           <span class="meta-dot" aria-hidden="true">·</span>
@@ -111,7 +111,7 @@
           <span class="meta-dot" aria-hidden="true">·</span>
           <span>Android 8.0+</span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span><span data-download-count="1.3.2">0</span> <span data-download-label="1.3.2">downloads</span></span>
+          <span><span data-download-count="1.3.3">0</span> <span data-download-label="1.3.3">downloads</span></span>
         </p>
       </div>
     </section>
@@ -121,26 +121,23 @@
         <article class="notes-content">
           <div class="callout">
             <svg class="icon callout-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
-            <div><strong>In-app update.</strong> v1.3.2 is the first build with the in-app updater. Install it once from this page; later releases can be installed from Settings → APP UPDATE. v1.1.1 was debug-signed and still needs a one-time uninstall before a release-signed build can install.</div>
+            <div><strong>Bug fix release.</strong> v1.3.3 keeps the install path from v1.3.2: install it once from this page, and later releases arrive through Settings → APP UPDATE. v1.1.1 was debug-signed and still needs a one-time uninstall before a release-signed build can install.</div>
           </div>
 
           <section id="summary">
             <h2>Summary</h2>
-            <p>v1.3.2 is the first release with the in-app updater. The app reads the public <code>release.json</code> feed, compares the remote <code>versionCode</code> with the installed build, and shows an update card when a newer build exists. The card appears automatically at launch and can also be opened from Settings → APP UPDATE.</p>
-            <p>Each release gets three counted <strong>Later</strong> skips. A skip only counts when you tap Later; opening the card, backgrounding the app, or failing a download does not consume a lifeline. After the third skip, the current session continues, but the next launch shows a blocking card with no Later, back, outside-tap, or close option. Installing the update or opening the release notes are the only actions. A new <code>versionCode</code> resets the count to three. Debug builds are never forced.</p>
-            <p>Before Android's installer opens, the app verifies the APK's SHA-256, package name, <code>versionCode</code>, and signing certificate. A failed check leaves the app on the update card with a retry option; it never hands an unverified file to the installer.</p>
+            <p>v1.3.3 is a bug-fix release. Clearing the Recently opened strip on the Workspace screen used to wipe pinned files along with the normal history. Pinning a file is meant to survive that button, and now it does: the X removes unpinned entries and leaves every pinned file exactly where it was.</p>
+            <p>Unpinned history is still trimmed to eight entries, so the strip keeps its size cap and newly opened files continue to push out the oldest unpinned ones. Pinned files are never trimmed and never count against that cap.</p>
+            <p>Nothing else changes. The in-app updater, the three-lifeline policy, and the SHA-256, package name, <code>versionCode</code>, and signing-certificate checks before install all behave exactly as they did in v1.3.2.</p>
           </section>
 
           <section id="features">
             <h2>Key Features</h2>
             <ul>
-              <li><strong>Automatic check:</strong> a silent update check runs at launch and shows the card only when a newer <code>versionCode</code> is published.</li>
-              <li><strong>Manual check:</strong> Settings → APP UPDATE shows the installed version, the latest version, and a Check for updates button.</li>
-              <li><strong>Three lifelines:</strong> each release allows three counted Later skips; the count is stored per <code>versionCode</code> and resets when a new release is published.</li>
-              <li><strong>Blocking forced card:</strong> after the third skip, the next launch cannot be dismissed with Later, back, outside tap, or a close button. Only Update now and the release notes link remain.</li>
+              <li><strong>Pinned files survive:</strong> the X on the Recently opened strip clears only unpinned history; pinned files stay pinned and stay visible.</li>
+              <li><strong>Same eight-entry cap:</strong> unpinned history is still trimmed to eight entries, and pinned files do not count towards it.</li>
+              <li><strong>Unchanged updater:</strong> automatic check at launch, manual check from Settings → APP UPDATE, and three counted Later skips per release.</li>
               <li><strong>Verified install:</strong> SHA-256, package name, <code>versionCode</code>, and signing certificate are checked before the installer is invoked.</li>
-              <li><strong>Resume support:</strong> a downloaded and verified update can be resumed from Settings without downloading it again.</li>
-              <li><strong>Debug safety:</strong> debug builds always report at least one lifeline and cannot install the release APK.</li>
               <li><strong>In-place update:</strong> v1.3.1 and later use the same release signing key, so no uninstall is needed.</li>
             </ul>
           </section>
@@ -149,11 +146,10 @@
             <h2>Installation</h2>
             <ol>
               <li>If you are on v1.1.1 (debug-signed), uninstall it once. Back up anything you need first.</li>
-              <li>Install <code>NIMELSSA-Vault-v1.3.2.apk</code> from the download card on this page. This is the first build with the in-app updater; later releases can be installed from Settings → APP UPDATE.</li>
+              <li>Install <code>NIMELSSA-Vault-v1.3.3.apk</code> from the download card on this page, or update from Settings → APP UPDATE inside the app.</li>
               <li>Android may ask you to allow installs from NIMELSSA Vault the first time. Grant it once; the permission is scoped to this app.</li>
               <li>Open the app and sign in. Verify your email and complete the access gate if prompted.</li>
-              <li>After approval, choose a Download location in Settings if you want saved files to survive a reinstall.</li>
-              <li>v1.3.1 and later update in place; no uninstall is needed for this update.</li>
+              <li>Pinned files, saved resources, and a chosen Download location carry over; updating from v1.3.1 or later does not clear app data.</li>
             </ol>
           </section>
 
@@ -163,7 +159,7 @@
               <li>No new required keys and no <code>google-services.json</code> changes.</li>
               <li>The update feed is the public <code>release.json</code> on this site; no GitHub account is required to check, download, or read the notes.</li>
               <li>Android's install-unknown-apps permission is requested the first time the app hands an APK to the installer. It is app-scoped and can be revoked in Android settings.</li>
-              <li>Firestore rules, the access gate, and the Drive API key are unchanged from v1.3.1.</li>
+              <li>Firestore rules, the access gate, and the Drive API key are unchanged from v1.3.2.</li>
               <li>The Windows desktop client is a separate read-only build with its own Drive key and is not affected by this release.</li>
               <li>The download folder remains a user-selected Android SAF folder and is not a Firebase setting.</li>
             </ul>
@@ -174,28 +170,18 @@
 
             <h3>Added</h3>
             <ul>
-              <li>In-app update check at launch and from Settings → APP UPDATE.</li>
-              <li>Update card states for available, downloading, verifying, ready, permission, and error.</li>
-              <li>Three counted Later skips per release, keyed by the remote <code>versionCode</code>.</li>
-              <li>Blocking forced-update card with only Update now and the release notes link.</li>
-              <li>SHA-256, package name, <code>versionCode</code>, and signing-certificate verification before install.</li>
-              <li>Resume update entry in Settings for a downloaded and verified APK.</li>
-              <li><code>REQUEST_INSTALL_PACKAGES</code> permission and a scoped FileProvider cache path for downloads.</li>
-              <li>Release notes opened in-app through Custom Tabs.</li>
+              <li>None.</li>
             </ul>
 
             <h3>Changed</h3>
             <ul>
-              <li>Version bumped to <code>versionCode 7</code> / <code>versionName 1.3.2</code>.</li>
-              <li>BuildConfig is enabled so the app can read its own version at runtime.</li>
-              <li>Startup now performs a silent update check after the existing initialization work.</li>
+              <li>Version bumped to <code>versionCode 8</code> / <code>versionName 1.3.3</code>.</li>
+              <li>Clearing the Recently opened strip now filters to unpinned entries before trimming to the eight-entry cap.</li>
             </ul>
 
             <h3>Fixed</h3>
             <ul>
-              <li>A retry from a forced flow stays blocking instead of falling back to the dismissible card.</li>
-              <li>Cancelling the system installer returns to the update card instead of losing the downloaded state.</li>
-              <li>Debug builds never become blocking, and the release APK is not offered to them.</li>
+              <li>The X on the Recently opened strip no longer removes pinned files; only unpinned history is cleared.</li>
             </ul>
 
             <h3>Removed</h3>
@@ -207,6 +193,13 @@
           <section id="faq">
             <h2>FAQ</h2>
             <div class="faq notes-faq">
+              <details class="faq-item" name="release-faq">
+                <summary><span>Does clearing Recently opened still remove pinned files?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer">
+                  <p>No. The X clears only unpinned history. Pinned files stay pinned, stay in the strip, and are not counted towards the eight-entry cap.</p>
+                </div>
+              </details>
+
               <details class="faq-item" name="release-faq">
                 <summary><span>Will skipping three times lock me out of the app?</span><span class="faq-icon" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
@@ -262,8 +255,8 @@
         <aside class="notes-sidebar">
           <div class="notes-card" id="download">
             <p class="release-label"><span class="status-dot" aria-hidden="true"></span> Latest release</p>
-            <p class="release-version" data-release-version>v1.3.2</p>
-            <p class="release-date">Released <span data-release-date>7 Nov 2026</span></p>
+            <p class="release-version" data-release-version>v1.3.3</p>
+            <p class="release-date">Released <span data-release-date>9 Nov 2026</span></p>
             <p class="release-meta">
               <span><span data-release-size>4.6 MB</span> download</span>
               <span class="meta-dot" aria-hidden="true">·</span>
@@ -273,10 +266,10 @@
               <span class="meta-dot" aria-hidden="true">·</span>
               <span>Release-signed</span>
               <span class="meta-dot" aria-hidden="true">·</span>
-              <span><span data-download-count="1.3.2">0</span> <span data-download-label="1.3.2">downloads</span></span>
+              <span><span data-download-count="1.3.3">0</span> <span data-download-label="1.3.3">downloads</span></span>
             </p>
 
-            <a class="btn btn-primary btn-lg btn-block" href="https://github.com/isygold1/nimelssa-vault/releases/download/v1.3.2/NIMELSSA-Vault-v1.3.2.apk" download data-download-link>
+            <a class="btn btn-primary btn-lg btn-block" href="https://github.com/isygold1/nimelssa-vault/releases/download/v1.3.3/NIMELSSA-Vault-v1.3.3.apk" download data-download-link>
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-download"/></svg>
               Download APK
             </a>
@@ -285,8 +278,8 @@
 
             <div class="checksum">
               <span class="checksum-label">SHA-256</span>
-              <code data-release-sha-short>c5b4a418…2a93</code>
-              <button class="copy-btn" type="button" data-copy-sha data-full-sha="c5b4a41869e7f5baa90cea2926f58a9b202342a141bb9277799a8cc339012a93" aria-label="Copy SHA-256">
+              <code data-release-sha-short>77a8f324…16ec</code>
+              <button class="copy-btn" type="button" data-copy-sha data-full-sha="77a8f3240664149b704cabfeb20f77a00f051435932d7f3e78fd1f7748b216ec" aria-label="Copy SHA-256">
                 <svg class="icon copy-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-copy"/></svg>
                 <svg class="icon check-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
               </button>
@@ -351,7 +344,7 @@
 
       <div class="footer-bottom">
         <span>© 2026 AGBOOLA ISRAEL OLUWAGBOGO. All rights reserved. NIMELSSA Vault is proprietary.</span>
-        <span><span data-release-version>v1.3.2</span> · Android 8.0+ · Release-signed</span>
+        <span><span data-release-version>v1.3.3</span> · Android 8.0+ · Release-signed</span>
       </div>
     </div>
   </footer>
