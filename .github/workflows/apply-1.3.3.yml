@@ -23,11 +23,11 @@ jobs:
         run: |
           set -euo pipefail
           repo="${GITHUB_REPOSITORY}"
+          rel="repos/${repo}/releases/${RELEASE_ID}"
           mkdir -p /tmp/rel
           cd /tmp/rel
 
-          apk_id="$(gh api "repos/${repo}/releases/${RELEASE_ID}" \
-            --jq ".assets[] | select(.name == \"${APK_NAME}\") | .id" | head -n 1)"
+          apk_id="$(gh api "$rel" --jq ".assets[] | select(.name == \"${APK_NAME}\") | .id" | head -n 1)"
 
           if [ -n "$apk_id" ]; then
             echo "Using ${APK_NAME} already attached to the release."
@@ -57,13 +57,22 @@ jobs:
           fi
 
           printf '%s  ./%s\n' "$got" "${APK_NAME}" > SHA256SUMS.txt
-          gh release upload "$RELEASE_ID" SHA256SUMS.txt --clobber --repo "$repo"
-          gh api -X DELETE "repos/${repo}/releases/assets/${ZIP_ASSET_ID}" || true
-          gh api -X PATCH "repos/${repo}/releases/${RELEASE_ID}" \
-            -f draft=false -f tag_name=v1.3.3 -f make_latest=true > /dev/null
-          gh release view v1.3.3 --repo "$repo" \
-            --json tagName,isDraft,isLatest,assets \
-            --jq '"tag=\(.tagName) draft=\(.isDraft) latest=\(.isLatest) assets=\([.assets[].name] | join(","))"'
+          sum_id="$(gh api "$rel" --jq '.assets[] | select(.name == "SHA256SUMS.txt") | .id' | head -n 1)"
+          if [ -n "$sum_id" ]; then
+            gh api -X DELETE "repos/${repo}/releases/assets/${sum_id}" > /dev/null
+          fi
+          upload_url="$(gh api "$rel" --jq .upload_url)"
+          upload_url="${upload_url%%\{*}"
+          curl -sf -X POST \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Content-Type: text/plain" \
+            --data-binary @SHA256SUMS.txt \
+            "${upload_url}?name=SHA256SUMS.txt" > /dev/null
+          echo "attached SHA256SUMS.txt"
+
+          gh api -X DELETE "repos/${repo}/releases/assets/${ZIP_ASSET_ID}" > /dev/null 2>&1 || true
+          gh api -X PATCH "$rel" -F draft=false -F make_latest=true -f tag_name=v1.3.3 > /dev/null
+          gh api "$rel" --jq '"draft=\(.draft) tag=\(.tag_name) assets=\([.assets[].name] | sort | join(","))"'
 
           url="https://github.com/${repo}/releases/download/v1.3.3/${APK_NAME}"
           ok=0
