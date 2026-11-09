@@ -41,10 +41,8 @@ jobs:
             found="$(find extracted -type f -iname '*.apk' | head -n 1)"
             if [ -z "$found" ]; then
               echo "::error::The uploaded zip contains no APK."
-              find extracted -maxdepth 3 -type f | head -n 20
               exit 1
             fi
-            echo "Zip holds $found"
             cp "$found" "${APK_NAME}"
           else
             echo "::error::No ${APK_NAME} asset and no zip asset on the release."
@@ -59,15 +57,25 @@ jobs:
           fi
 
           printf '%s  ./%s\n' "$got" "${APK_NAME}" > SHA256SUMS.txt
-          gh release upload "$RELEASE_ID" SHA256SUMS.txt --clobber
+          gh release upload "$RELEASE_ID" SHA256SUMS.txt --clobber --repo "$repo"
           gh api -X DELETE "repos/${repo}/releases/assets/${ZIP_ASSET_ID}" || true
           gh api -X PATCH "repos/${repo}/releases/${RELEASE_ID}" \
             -f draft=false -f tag_name=v1.3.3 -f make_latest=true > /dev/null
-          gh release view v1.3.3 --json tagName,isDraft,isLatest,assets \
+          gh release view v1.3.3 --repo "$repo" \
+            --json tagName,isDraft,isLatest,assets \
             --jq '"tag=\(.tagName) draft=\(.isDraft) latest=\(.isLatest) assets=\([.assets[].name] | join(","))"'
 
           url="https://github.com/${repo}/releases/download/v1.3.3/${APK_NAME}"
-          curl -fsIL "$url" > /dev/null
+          ok=0
+          for attempt in 1 2 3 4 5; do
+            if curl -fsIL "$url" > /dev/null; then ok=1; break; fi
+            echo "download URL not ready yet (attempt ${attempt}); retrying"
+            sleep 5
+          done
+          if [ "$ok" != "1" ]; then
+            echo "::error::The published download URL is not serving ${APK_NAME}."
+            exit 1
+          fi
           echo "download URL is live: $url"
 
       - name: Update the site for v1.3.3
