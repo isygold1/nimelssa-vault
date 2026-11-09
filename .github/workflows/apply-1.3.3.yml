@@ -13,39 +13,62 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       RELEASE_ID: "439299240"
       ZIP_ASSET_ID: "727973318"
+      APK_NAME: NIMELSSA-Vault-v1.3.3.apk
       EXPECTED_SHA: "77a8f3240664149b704cabfeb20f77a00f051435932d7f3e78fd1f7748b216ec"
     steps:
       - name: Check out the site
         uses: actions/checkout@v4
 
-      - name: Replace the zipped upload with the signed APK
+      - name: Make sure the release carries the signed APK
         run: |
           set -euo pipefail
+          repo="${GITHUB_REPOSITORY}"
           mkdir -p /tmp/rel
           cd /tmp/rel
-          gh api -H "Accept: application/octet-stream" \
-            "repos/${GITHUB_REPOSITORY}/releases/assets/${ZIP_ASSET_ID}" > uploaded.zip
-          unzip -o -q uploaded.zip -d extracted
-          apk="$(find extracted -type f -iname '*.apk' | head -n 1)"
-          if [ -z "$apk" ]; then
-            echo "::error::The uploaded zip contains no APK."
-            find extracted -maxdepth 3 -type f | head -n 20
+
+          apk_id="$(gh api "repos/${repo}/releases/${RELEASE_ID}" \
+            --jq ".assets[] | select(.name == \"${APK_NAME}\") | .id" | head -n 1)"
+
+          if [ -n "$apk_id" ]; then
+            echo "Using ${APK_NAME} already attached to the release."
+            gh api -H "Accept: application/octet-stream" \
+              "repos/${repo}/releases/assets/${apk_id}" > "${APK_NAME}"
+          elif gh api "repos/${repo}/releases/assets/${ZIP_ASSET_ID}" > /dev/null 2>&1; then
+            echo "Falling back to the uploaded zip."
+            gh api -H "Accept: application/octet-stream" \
+              "repos/${repo}/releases/assets/${ZIP_ASSET_ID}" > uploaded.zip
+            unzip -o -q uploaded.zip -d extracted
+            found="$(find extracted -type f -iname '*.apk' | head -n 1)"
+            if [ -z "$found" ]; then
+              echo "::error::The uploaded zip contains no APK."
+              find extracted -maxdepth 3 -type f | head -n 20
+              exit 1
+            fi
+            echo "Zip holds $found"
+            cp "$found" "${APK_NAME}"
+          else
+            echo "::error::No ${APK_NAME} asset and no zip asset on the release."
             exit 1
           fi
-          got="$(sha256sum "$apk" | cut -d' ' -f1)"
-          echo "APK: $apk"
+
+          got="$(sha256sum "${APK_NAME}" | cut -d' ' -f1)"
           echo "sha256: $got"
           if [ "$got" != "$EXPECTED_SHA" ]; then
             echo "::error::That APK is not the published v1.3.3 build (sha256 $got)."
             exit 1
           fi
-          cp "$apk" NIMELSSA-Vault-v1.3.3.apk
-          printf '%s  ./NIMELSSA-Vault-v1.3.3.apk\n' "$got" > SHA256SUMS.txt
-          gh release upload "$RELEASE_ID" NIMELSSA-Vault-v1.3.3.apk SHA256SUMS.txt --clobber
-          gh api -X DELETE "repos/${GITHUB_REPOSITORY}/releases/assets/${ZIP_ASSET_ID}"
-          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/${RELEASE_ID}" \
-            -f draft=false -f tag_name=v1.3.3 -f make_latest=true
-          gh release view v1.3.3 --json tagName,isDraft,isLatest,assets
+
+          printf '%s  ./%s\n' "$got" "${APK_NAME}" > SHA256SUMS.txt
+          gh release upload "$RELEASE_ID" SHA256SUMS.txt --clobber
+          gh api -X DELETE "repos/${repo}/releases/assets/${ZIP_ASSET_ID}" || true
+          gh api -X PATCH "repos/${repo}/releases/${RELEASE_ID}" \
+            -f draft=false -f tag_name=v1.3.3 -f make_latest=true > /dev/null
+          gh release view v1.3.3 --json tagName,isDraft,isLatest,assets \
+            --jq '"tag=\(.tagName) draft=\(.isDraft) latest=\(.isLatest) assets=\([.assets[].name] | join(","))"'
+
+          url="https://github.com/${repo}/releases/download/v1.3.3/${APK_NAME}"
+          curl -fsIL "$url" > /dev/null
+          echo "download URL is live: $url"
 
       - name: Update the site for v1.3.3
         run: |
