@@ -1,12 +1,12 @@
 # NIMELSSA Vault
 
-Static download site for NIMELSSA Vault, the academic resource app for Medical Laboratory Science students at the University of Ilorin. It serves the signed v1.3.4 APK, checksums, install guidance, release history, and release notes from a public GitHub Pages site with no backend, login, or analytics.
+Static download site for NIMELSSA Vault, the academic resource app for Medical Laboratory Science students at the University of Ilorin. It serves the signed v1.3.5 APK, checksums, install guidance, release history, and release notes from a public GitHub Pages site with no backend, login, or analytics.
 
 ## Key Features
 
-- **Direct APK download:** the signed `NIMELSSA-Vault-v1.3.4.apk` is attached to the public release in `isygold1/nimelssa-vault`; a same-origin copy in `downloads/` remains the fallback when the release asset is unavailable.
+- **Direct APK download:** the signed `NIMELSSA-Vault-v1.3.5.apk` is attached to the public release in `isygold1/nimelssa-vault`; a same-origin copy in `downloads/` remains the fallback when the release asset is unavailable.
 - **Release integrity:** the page publishes the APK SHA-256 and signing-certificate SHA-1, with copy-to-clipboard and `sha256sum` / `apksigner` verification commands.
-- **On-site release notes:** `release-notes.html` keeps the full v1.3.4 notes public even though the app source repository is private; `release-notes-v1.3.3.html`, `release-notes-v1.3.2.html`, `release-notes-v1.3.1.html`, `release-notes-v1.3.0.html`, and `release-notes-v1.2.0.html` preserve previous releases.
+- **On-site release notes:** `release-notes.html` keeps the full v1.3.5 notes public even though the app source repository is private; `release-notes-v1.3.4.html`, `release-notes-v1.3.3.html`, `release-notes-v1.3.2.html`, `release-notes-v1.3.1.html`, `release-notes-v1.3.0.html`, and `release-notes-v1.2.0.html` preserve previous releases.
 - **Release history:** the landing page has a Releases section after the FAQ with the current and previous signed builds.
 - **Search-suppressed public site:** all HTML pages carry `noindex, nofollow, noarchive`; `robots.txt` disallows `/downloads/`; no sitemap is deployed. This is best-effort Google suppression, not access control.
 - **Clear install guidance:** three install steps, the v1.1.1 debug-signed one-time uninstall caveat, and an FAQ covering the verified-email access gate.
@@ -50,8 +50,8 @@ Static download site for NIMELSSA Vault, the academic resource app for Medical L
 4. Verify the deployment:
    ```bash
    curl -sSI https://isygold1.github.io/nimelssa-vault/
-   curl -sSI https://isygold1.github.io/nimelssa-vault/downloads/NIMELSSA-Vault-v1.3.4.apk
-   curl -sSL https://isygold1.github.io/nimelssa-vault/downloads/NIMELSSA-Vault-v1.3.4.apk | sha256sum
+   curl -sSI https://isygold1.github.io/nimelssa-vault/downloads/NIMELSSA-Vault-v1.3.5.apk
+   curl -sSL https://isygold1.github.io/nimelssa-vault/downloads/NIMELSSA-Vault-v1.3.5.apk | sha256sum
    ```
    Compare the checksum with `release.json`. The APK links use the HTML `download` attribute; GitHub Pages cannot set a `Content-Disposition` header. Verify the MIME type after publishing.
 5. Keep the fallback hosts separate: Cloudflare uses `_headers`; Firebase Hosting uses `firebase.json`. Neither file is copied to GitHub Pages. Both fallbacks inherit the same noindex pages and robots policy.
@@ -60,7 +60,7 @@ Static download site for NIMELSSA Vault, the academic resource app for Medical L
 
 - **`release.json` is the release source of truth.** It carries `version`, `versionCode`, `apkUrl`, `sizeBytes`, `installedSizeLabel`, `sha256`, `certSha1`, `releasedAt`, `minAndroid`, `minSdk`, `notesUrl`, `forceAfterCancels`, `highlights`, and cached `downloads` counts. The page JS fetches it and updates the version, sizes, date, checksum, download links, and counts.
 - **Static fallback values matter.** `index.html` and `release-notes.html` contain last-known values so the page still works if the fetch fails or JavaScript is unavailable. Update those fallbacks whenever you update `release.json`.
-- **APK placement and filename:** keep the signed APK at `downloads/NIMELSSA-Vault-v1.3.4.apk`. The public release asset in `isygold1/nimelssa-vault` is the download link used by the site; the `downloads/` copy remains the fallback and checksum source. If the filename changes, update every `data-download-link` fallback href, `release.json`, the public release asset, and the Cloudflare `_headers` / Firebase `firebase.json` filenames if those fallbacks are used.
+- **APK placement and filename:** keep the signed APK at `downloads/NIMELSSA-Vault-v1.3.5.apk`. The public release asset in `isygold1/nimelssa-vault` is the download link used by the site; the `downloads/` copy remains the fallback and checksum source. If the filename changes, update every `data-download-link` fallback href, `release.json`, the public release asset, and the Cloudflare `_headers` / Firebase `firebase.json` filenames if those fallbacks are used.
 - **Download counts:** public releases live in `isygold1/nimelssa-vault`, not the private app repo. Each release carries the APK asset. `main.js` reads cached counts from `release.json`, then refreshes from the public GitHub Releases API. Public release assets can be downloaded without a GitHub account.
 - **GitHub Pages header limitation:** GitHub Pages does not support custom `Content-Type`, `Content-Disposition`, `X-Robots-Tag`, or cache-control headers. The APK links already have `download`, which makes browsers download the same-origin file; the server header requirement is only met by the Cloudflare or Firebase fallbacks.
 - **Noindex is best effort:** all HTML pages have `noindex, nofollow, noarchive`; `robots.txt` disallows `/downloads/`; no sitemap is deployed. GitHub Pages cannot set `X-Robots-Tag`. The site remains publicly accessible to anyone with the URL. This is not access control.
