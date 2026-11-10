@@ -12,8 +12,7 @@
   "notesUrl": "release-notes.html",
   "forceAfterCancels": 3,
   "highlights": [
-    "fix: keep generated release text literal in site updater.",
-    "fix: keep generated release text literal in site updater"
+    "Maintenance release; no user-facing changes."
   ],
   "downloads": {
     "1.3.5": 0,
