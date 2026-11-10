@@ -102,15 +102,17 @@
     }
   };
 
-  fetch('release.json', { cache: 'no-store' })
-    .then((response) => {
-      if (!response.ok) throw new Error('release manifest unavailable');
-      return response.json();
-    })
-    .then(applyRelease)
-    .catch(() => {
-      // The page keeps the last-known values embedded in the HTML.
-    });
+  if (!document.documentElement.dataset.archive) {
+    fetch('release.json', { cache: 'no-store' })
+      .then((response) => {
+        if (!response.ok) throw new Error('release manifest unavailable');
+        return response.json();
+      })
+      .then(applyRelease)
+      .catch(() => {
+        // The page keeps the last-known values embedded in the HTML.
+      });
+  }
 
   refreshDownloadCounts();
 
