@@ -312,6 +312,66 @@ h4 {
 
 /* Header */
 
+.utility-bar {
+  border-bottom: 1px solid var(--line);
+  background: rgba(2, 6, 23, 0.78);
+}
+
+.utility-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 46px;
+}
+
+.utility-route {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  padding: 0 12px;
+  border: 1px solid rgba(45, 212, 191, 0.38);
+  border-radius: 999px;
+  background: rgba(45, 212, 191, 0.07);
+  color: var(--primary-strong);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.utility-route:hover {
+  border-color: var(--primary);
+  background: rgba(45, 212, 191, 0.14);
+  color: #fff;
+}
+
+.utility-route:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.utility-note {
+  color: var(--faint);
+  font-size: 11.5px;
+}
+
+@media (max-width: 640px) {
+  .utility-inner {
+    min-height: 42px;
+  }
+
+  .utility-note {
+    display: none;
+  }
+
+  .utility-route {
+    font-size: 10px;
+  }
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -1288,6 +1348,70 @@ h4 {
 }
 
 /* Download / release card */
+
+.platform-switch {
+  display: inline-flex;
+  gap: 4px;
+  margin: 0 0 18px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(2, 6, 23, 0.55);
+}
+
+.platform-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.platform-tab .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.platform-tab:hover {
+  color: var(--text);
+}
+
+.platform-tab.is-active {
+  background: rgba(45, 212, 191, 0.14);
+  color: var(--primary-strong);
+  box-shadow: inset 0 0 0 1px rgba(45, 212, 191, 0.35);
+}
+
+.platform-tab:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.platform-panel[hidden] {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .platform-switch {
+    display: flex;
+    width: 100%;
+  }
+
+  .platform-tab {
+    flex: 1;
+  }
+}
 
 .release-card {
   position: relative;

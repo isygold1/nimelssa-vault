@@ -1,0 +1,11 @@
+{
+  "version": "1.4.0",
+  "channel": "preview",
+  "installerUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/desktop-v1.4.0/NIMELSSA-Vault-1.4.0.exe",
+  "sizeBytes": 67112960,
+  "sha256": "7ce62db08daead59d6782de49f9673356689452cccb6dea2381da7a1fdb63d19",
+  "releasedAt": "2026-11-11",
+  "minWindows": "Windows 10/11 (64-bit)",
+  "signed": false,
+  "notesUrl": "https://github.com/isygold1/nimelssa-vault/releases/tag/desktop-v1.4.0"
+}

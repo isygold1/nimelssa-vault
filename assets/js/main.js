@@ -82,6 +82,34 @@
     if (data.downloads) applyDownloadCounts(data.downloads);
   };
 
+  const applyWindowsRelease = (data) => {
+    if (!data || typeof data !== 'object') return;
+
+    if (data.version) setAll('[data-win-version]', `v${data.version}`);
+    if (data.sizeBytes) setAll('[data-win-size]', formatBytes(data.sizeBytes));
+    if (data.releasedAt) setAll('[data-win-date]', formatDate(data.releasedAt));
+
+    if (data.sha256) {
+      setAll('[data-win-sha-short]', shortHash(data.sha256));
+      setAll('[data-win-sha]', data.sha256);
+      $$('[data-copy-win-sha]').forEach((button) => {
+        button.dataset.fullSha = data.sha256;
+      });
+    }
+
+    if (data.installerUrl) {
+      $$('[data-win-download]').forEach((link) => {
+        link.setAttribute('href', data.installerUrl);
+      });
+    }
+
+    if (data.notesUrl) {
+      $$('[data-win-notes]').forEach((link) => {
+        link.setAttribute('href', data.notesUrl);
+      });
+    }
+  };
+
   const refreshDownloadCounts = async () => {
     try {
       const response = await fetch('https://api.github.com/repos/isygold1/nimelssa-vault/releases?per_page=10', {
@@ -112,9 +140,48 @@
       .catch(() => {
         // The page keeps the last-known values embedded in the HTML.
       });
+
+    fetch('windows-release.json', { cache: 'no-store' })
+      .then((response) => {
+        if (!response.ok) throw new Error('Windows release manifest unavailable');
+        return response.json();
+      })
+      .then(applyWindowsRelease)
+      .catch(() => {
+        // The Windows card keeps the last-known values embedded in the HTML.
+      });
   }
 
   refreshDownloadCounts();
+
+  const platformTabs = $$('[data-platform-tab]');
+  const platformPanels = $$('[data-platform-panel]');
+  if (platformTabs.length && platformPanels.length) {
+    const selectPlatform = (platform, focus = false) => {
+      platformTabs.forEach((tab) => {
+        const active = tab.dataset.platformTab === platform;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        tab.tabIndex = active ? 0 : -1;
+        if (active && focus) tab.focus();
+      });
+      platformPanels.forEach((panel) => {
+        panel.hidden = panel.dataset.platformPanel !== platform;
+      });
+    };
+
+    platformTabs.forEach((tab) => {
+      tab.addEventListener('click', () => selectPlatform(tab.dataset.platformTab));
+      tab.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        const current = platformTabs.findIndex((item) => item.classList.contains('is-active'));
+        const step = event.key === 'ArrowRight' ? 1 : -1;
+        const next = (current + step + platformTabs.length) % platformTabs.length;
+        selectPlatform(platformTabs[next].dataset.platformTab, true);
+      });
+    });
+  }
 
   const header = $('#site-header');
   if (header) {
@@ -204,7 +271,11 @@
     }
   };
 
-  $$('[data-copy-sha]').forEach((button) => {
+  $$('[data-copy-sha], [data-copy-win-sha]').forEach((button) => {
+    const isWindows = button.hasAttribute('data-copy-win-sha');
+    const copyLabel = isWindows ? 'Copy Windows SHA-256' : 'Copy SHA-256';
+    const copiedLabel = isWindows ? 'Windows SHA-256 copied' : 'SHA-256 copied';
+
     button.addEventListener('click', async () => {
       const value = button.dataset.fullSha || '';
       if (!value) return;
@@ -212,12 +283,12 @@
       if (!copied) return;
 
       button.dataset.copied = 'true';
-      button.setAttribute('aria-label', 'SHA-256 copied');
+      button.setAttribute('aria-label', copiedLabel);
 
       window.clearTimeout(button.copyTimer);
       button.copyTimer = window.setTimeout(() => {
         button.dataset.copied = 'false';
-        button.setAttribute('aria-label', 'Copy SHA-256');
+        button.setAttribute('aria-label', copyLabel);
       }, 2000);
     });
   });
