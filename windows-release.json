@@ -7,5 +7,5 @@
   "releasedAt": "2026-11-11",
   "minWindows": "Windows 10/11 (64-bit)",
   "signed": false,
-  "notesUrl": "https://github.com/isygold1/nimelssa-vault/releases/tag/desktop-v1.4.0"
+  "notesUrl": "windows-release-notes.html"
 }

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NIMELSSA Vault Desktop v1.4.0 Preview — Release Notes</title>
+  <meta name="description" content="Release notes for the NIMELSSA Vault Windows desktop preview v1.4.0.">
+  <link rel="icon" type="image/png" href="assets/img/crest.png">
+  <link rel="apple-touch-icon" href="assets/img/crest.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="canonical" href="https://isygold1.github.io/nimelssa-vault/windows-release-notes.html">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/release-notes.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5m0 3h.01"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M14 3h7v7M10 14 21 3M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></symbol>
+  </svg>
+
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <a class="utility-route" href="https://www.unilorin.edu.ng/" target="_blank" rel="noopener" aria-label="Open the University of Ilorin homepage in a new tab">
+        UNILORIN Homepage <span aria-hidden="true">↗</span>
+      </a>
+      <span class="utility-note">Independent student project</span>
+    </div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="NIMELSSA Vault home">
+        <img class="brand-crest" src="assets/img/crest.png" alt="" width="36" height="36">
+        <span class="brand-name">NIMELSSA <b>VAULT</b></span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost btn-small" href="index.html?platform=windows#download">Back to downloads</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="notes-hero" aria-labelledby="notes-title">
+      <div class="container">
+        <a class="back-link" href="index.html">← Back to NIMELSSA Vault</a>
+        <p class="eyebrow">Windows desktop preview</p>
+        <h1 id="notes-title">NIMELSSA Vault Desktop <span class="text-accent" data-win-version>v1.4.0</span></h1>
+        <p class="notes-summary">A Windows 10/11 desktop preview, separate from the Android release and its update feed.</p>
+        <p class="notes-meta">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Preview</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span>Released <span data-win-date>11 Nov 2026</span></span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span><span data-win-size>67 MB</span> installer</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span>Windows 10/11 (64-bit)</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span>Unsigned</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span><span data-download-count="desktop-1.4.0">0</span> <span data-download-label="desktop-1.4.0">downloads</span></span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section notes-section" aria-labelledby="windows-notes-title">
+      <h2 id="windows-notes-title" class="visually-hidden">Windows desktop preview release notes</h2>
+      <div class="container notes-layout">
+        <article class="notes-content">
+          <h2 class="visually-hidden">Release details</h2>
+
+          <div class="callout callout-warning">
+            <svg class="icon callout-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-alert"/></svg>
+            <div><strong>Preview build.</strong> The installer is unsigned, so Windows SmartScreen will warn. Verify the SHA-256 before choosing <em>More info → Run anyway</em>.</div>
+          </div>
+
+          <section id="summary">
+            <h2>Summary</h2>
+            <p>This is the first public Windows desktop preview of NIMELSSA Vault. It is a separate build from the Android APK, with its own version number, installer, and download feed.</p>
+            <p>It was built from the <code>desktop-parity</code> branch at commit <code>d6fb69d</code>. That branch has not been merged into <code>test3</code>.</p>
+          </section>
+
+          <section id="status">
+            <h2>Status</h2>
+            <ul>
+              <li><strong>Preview, not stable:</strong> treat it as a working build for testing, not a final desktop release.</li>
+              <li><strong>Unsigned:</strong> Windows SmartScreen will warn until the installer is code-signed and builds reputation.</li>
+              <li><strong>Real-device pass:</strong> tested end to end on a Dell Latitude E7240, 8 GB RAM, 128 GB SSD, Windows 11 Pro 25H2. The exact OS build number was not recorded.</li>
+              <li><strong>Still pending:</strong> a second clean Windows 10/11 virtual machine, an upgrade install from an older desktop build, and the final code-signing choice.</li>
+            </ul>
+          </section>
+
+          <section id="installation">
+            <h2>Installation</h2>
+            <ol>
+              <li>Download <code>NIMELSSA-Vault-1.4.0.exe</code> from the card on this page.</li>
+              <li>Verify the SHA-256 with <code>certutil</code> before running it.</li>
+              <li>Run the installer. If SmartScreen appears, choose <em>More info → Run anyway</em> only after the hash matches.</li>
+              <li>Open NIMELSSA Vault and sign in with an approved account.</li>
+              <li>There is no auto-update yet. Install a newer preview installer when one is published.</li>
+            </ol>
+          </section>
+
+          <section id="verify">
+            <h2>Verify</h2>
+            <p>Compare the full SHA-256 before running the installer:</p>
+            <code class="hash" data-win-sha>7ce62db08daead59d6782de49f9673356689452cccb6dea2381da7a1fdb63d19</code>
+            <pre><code>certutil -hashfile NIMELSSA-Vault-1.4.0.exe SHA256</code></pre>
+          </section>
+
+          <section id="configuration">
+            <h2>Configuration</h2>
+            <ul>
+              <li>The installer does not bundle <code>google-services.json</code> or a service-account credential.</li>
+              <li>The desktop build uses public client API keys for Firebase and Drive. Firestore rules remain the access-control boundary.</li>
+              <li>Use a separate Drive API key for desktop; do not reuse the Android-restricted key.</li>
+              <li>No auto-update channel is configured for the desktop preview.</li>
+            </ul>
+          </section>
+
+          <section id="known-issues">
+            <h2>Known issues</h2>
+            <ul>
+              <li>SmartScreen warns because the installer is unsigned.</li>
+              <li>No auto-update or in-app desktop updater.</li>
+              <li>Only one real Windows machine has been exercised end to end.</li>
+              <li><code>desktop-parity</code> is not merged, so desktop fixes can land separately from Android releases.</li>
+              <li>Desktop feature coverage may lag the Android app while the branch stays separate.</li>
+            </ul>
+          </section>
+
+          <section id="faq">
+            <h2>FAQ</h2>
+            <div class="faq notes-faq">
+              <details class="faq-item" name="windows-release-faq">
+                <summary><span>Is this the Android app?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer"><p>No. This is a separate Windows desktop preview with its own version number and installer. Android releases continue on the Android download tab.</p></div>
+              </details>
+              <details class="faq-item" name="windows-release-faq">
+                <summary><span>Is the installer signed?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer"><p>No. It is an unsigned preview. Check the SHA-256 before running it, and expect a SmartScreen warning.</p></div>
+              </details>
+              <details class="faq-item" name="windows-release-faq">
+                <summary><span>Does it update itself?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer"><p>No. Download and run a newer installer when a new preview is published.</p></div>
+              </details>
+              <details class="faq-item" name="windows-release-faq">
+                <summary><span>Does this affect Android?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer"><p>No. The Android APK, update feed, signing key, and release notes are separate.</p></div>
+              </details>
+              <details class="faq-item" name="windows-release-faq">
+                <summary><span>Where do I report a desktop issue?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer"><p>Email <a href="mailto:israelagboola53@gmail.com?subject=NIMELSSA%20Vault%20Desktop%20preview">israelagboola53@gmail.com</a> with the Windows build number and the step that failed.</p></div>
+              </details>
+            </div>
+          </section>
+
+          <section id="credits">
+            <h2>Credits</h2>
+            <div class="notes-credits">
+              <p><strong>AGBOOLA ISRAEL OLUWAGBOGO</strong><a href="mailto:israelagboola53@gmail.com">israelagboola53@gmail.com</a></p>
+            </div>
+          </section>
+        </article>
+
+        <aside class="notes-sidebar">
+          <div class="notes-card" id="download">
+            <p class="release-label"><span class="status-dot" aria-hidden="true"></span> Windows preview</p>
+            <p class="release-version" data-win-version>v1.4.0</p>
+            <p class="release-date">Released <span data-win-date>11 Nov 2026</span></p>
+            <p class="release-meta">
+              <span><span data-win-size>67 MB</span> installer</span>
+              <span class="meta-dot" aria-hidden="true">·</span>
+              <span>Windows 10/11 (64-bit)</span>
+              <span class="meta-dot" aria-hidden="true">·</span>
+              <span>Unsigned</span>
+              <span class="meta-dot" aria-hidden="true">·</span>
+              <span><span data-download-count="desktop-1.4.0">0</span> <span data-download-label="desktop-1.4.0">downloads</span></span>
+            </p>
+
+            <a class="btn btn-primary btn-lg btn-block" href="https://github.com/isygold1/nimelssa-vault/releases/download/desktop-v1.4.0/NIMELSSA-Vault-1.4.0.exe" download data-win-download>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-download"/></svg>
+              Download installer
+            </a>
+
+            <p class="space-note">Unsigned preview. Verify the SHA-256 before running; SmartScreen will warn.</p>
+
+            <div class="checksum">
+              <span class="checksum-label">SHA-256</span>
+              <code data-win-sha-short>7ce62db0…3d19</code>
+              <button class="copy-btn" type="button" data-copy-win-sha data-full-sha="7ce62db08daead59d6782de49f9673356689452cccb6dea2381da7a1fdb63d19" aria-label="Copy Windows SHA-256">
+                <svg class="icon copy-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-copy"/></svg>
+                <svg class="icon check-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
+              </button>
+            </div>
+
+            <a class="release-notes-link" href="https://github.com/isygold1/nimelssa-vault/releases/tag/desktop-v1.4.0" target="_blank" rel="noopener">View GitHub release
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"/></svg>
+            </a>
+          </div>
+
+          <nav class="notes-toc" aria-label="On this page">
+            <h2>On this page</h2>
+            <a href="#download">Download</a>
+            <a href="#summary">Summary</a>
+            <a href="#status">Status</a>
+            <a href="#installation">Installation</a>
+            <a href="#verify">Verify</a>
+            <a href="#configuration">Configuration</a>
+            <a href="#known-issues">Known issues</a>
+            <a href="#faq">FAQ</a>
+            <a href="#credits">Credits</a>
+          </nav>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-legal">
+        <p><strong>Independent student project.</strong> Not affiliated with or endorsed by NIMELSSA or the University of Ilorin. The NIMELSSA emblem is used with permission of the NIMELSSA President. AI assistance tools were used in the creation and debugging of this project.</p>
+        <p>Built by <strong>AGBOOLA ISRAEL OLUWAGBOGO</strong> · <a href="mailto:israelagboola53@gmail.com">israelagboola53@gmail.com</a></p>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 AGBOOLA ISRAEL OLUWAGBOGO. All rights reserved. NIMELSSA Vault is proprietary.</span>
+        <span>Windows desktop preview · Unsigned installer</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

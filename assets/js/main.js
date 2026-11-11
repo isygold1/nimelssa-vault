@@ -120,7 +120,20 @@
       const releases = await response.json();
       const counts = {};
       releases.forEach((release) => {
-        const version = String(release.tag_name || '').replace(/^v/, '');
+        const tag = String(release.tag_name || '');
+
+        if (tag.startsWith('desktop-v')) {
+          const desktopVersion = tag.replace(/^desktop-v/, '');
+          const desktopAsset = (release.assets || []).find(
+            (item) => item.name === `NIMELSSA-Vault-${desktopVersion}.exe`
+          );
+          if (desktopAsset && Number.isFinite(desktopAsset.download_count)) {
+            counts[`desktop-${desktopVersion}`] = desktopAsset.download_count;
+          }
+          return;
+        }
+
+        const version = tag.replace(/^v/, '');
         const asset = (release.assets || []).find((item) => item.name === `NIMELSSA-Vault-v${version}.apk`);
         if (asset && Number.isFinite(asset.download_count)) counts[version] = asset.download_count;
       });
@@ -168,6 +181,9 @@
       platformPanels.forEach((panel) => {
         panel.hidden = panel.dataset.platformPanel !== platform;
       });
+      $$('[data-platform-show]').forEach((section) => {
+        section.hidden = section.dataset.platformShow !== platform;
+      });
     };
 
     platformTabs.forEach((tab) => {
@@ -181,6 +197,15 @@
         selectPlatform(platformTabs[next].dataset.platformTab, true);
       });
     });
+
+    $$('[data-select-platform]').forEach((link) => {
+      link.addEventListener('click', () => selectPlatform(link.dataset.selectPlatform));
+    });
+
+    const requestedPlatform = new URLSearchParams(window.location.search).get('platform');
+    if (requestedPlatform === 'android' || requestedPlatform === 'windows') {
+      selectPlatform(requestedPlatform);
+    }
   }
 
   const header = $('#site-header');
