@@ -1,10 +1,10 @@
 {
-  "version": "1.3.9",
-  "versionCode": 14,
-  "apkUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/v1.3.9/NIMELSSA-Vault-v1.3.9.apk",
-  "sizeBytes": 4680333,
+  "version": "1.4.0",
+  "versionCode": 15,
+  "apkUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/v1.4.0/NIMELSSA-Vault-v1.4.0.apk",
+  "sizeBytes": 4681253,
   "installedSizeLabel": "~18 MB",
-  "sha256": "35aac8bea068ced788df496fc9f97c55f9869587c5171980fcd83c7b296f7873",
+  "sha256": "e6062942fc55a396c5c889b3017d085caa23b972ab2e712e86d0ed1e60da4833",
   "certSha1": "c6a59025ddc8ad47458d99b394607db97d2a887c",
   "releasedAt": "2026-11-12",
   "minAndroid": "8.0",
@@ -12,9 +12,11 @@
   "notesUrl": "release-notes.html",
   "forceAfterCancels": 3,
   "highlights": [
-    "feat(proposals): make ownership and notifications email-change safe."
+    "fix(workspace): recompose proposal tracker when the list loads.",
+    "feat(proposals): show full own-proposal history."
   ],
   "downloads": {
+    "1.4.0": 0,
     "1.3.9": 0,
     "1.3.8": 0,
     "1.3.7": 0,
