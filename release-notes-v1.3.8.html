@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en" data-archive="true">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>NIMELSSA Vault v1.3.8 — Release Notes</title>
+  <meta name="description" content="Release notes for NIMELSSA Vault v1.3.8: fix(build): correct proposal cache file construction.">
+  <meta name="theme-color" content="#0B0F17">
+  <meta name="color-scheme" content="dark">
+
+  <link rel="icon" type="image/png" href="assets/img/crest.png">
+  <link rel="apple-touch-icon" href="assets/img/crest.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="canonical" href="https://isygold1.github.io/nimelssa-vault/release-notes.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="NIMELSSA Vault">
+  <meta property="og:title" content="NIMELSSA Vault v1.3.8 — Release Notes">
+  <meta property="og:description" content="A clearer What&#x27;s New experience, tidier staff navigation, and automatic role refresh when the drawer opens.">
+  <meta property="og:url" content="https://isygold1.github.io/nimelssa-vault/release-notes.html">
+  <meta property="og:image" content="https://isygold1.github.io/nimelssa-vault/assets/img/crest.png">
+  <meta property="og:image:alt" content="NIMELSSA emblem">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NIMELSSA Vault v1.3.8 — Release Notes">
+  <meta name="twitter:description" content="A clearer What&#x27;s New experience, tidier staff navigation, and automatic role refresh when the drawer opens.">
+  <meta name="twitter:image" content="https://isygold1.github.io/nimelssa-vault/assets/img/crest.png">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/release-notes.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5m0 3h.01"/></symbol>
+  </svg>
+
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <a class="utility-route" href="https://www.unilorin.edu.ng/" target="_blank" rel="noopener" aria-label="Open the University of Ilorin homepage in a new tab">
+        UNILORIN Homepage <span aria-hidden="true">↗</span>
+      </a>
+      <span class="utility-note">Independent student project</span>
+    </div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="NIMELSSA Vault home">
+        <img class="brand-crest" src="assets/img/crest.png" alt="" width="36" height="36">
+        <span class="brand-name">NIMELSSA <b>VAULT</b></span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#screens">Screenshots</a>
+        <a href="index.html#install">Install</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#releases">Releases</a>
+        <a class="is-active" href="release-notes.html">Release notes</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary btn-small header-download" href="#download">Download</a>
+        <a class="icon-btn mobile-download" href="#download" aria-label="Go to download">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-download"/></svg>
+        </a>
+        <button class="icon-btn menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-menu"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <dialog class="mobile-menu" id="mobile-menu" aria-label="Menu">
+    <div class="mobile-menu-top">
+      <a class="brand" href="index.html" aria-label="NIMELSSA Vault home">
+        <img class="brand-crest" src="assets/img/crest.png" alt="" width="36" height="36">
+        <span class="brand-name">NIMELSSA <b>VAULT</b></span>
+      </a>
+      <button class="icon-btn" type="button" data-close-menu aria-label="Close menu">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-close"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#screens">Screenshots</a>
+      <a href="index.html#install">Install</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#releases">Releases</a>
+      <a href="release-notes.html">Release notes</a>
+      <a class="btn btn-primary btn-lg" href="#download">Download</a>
+    </nav>
+  </dialog>
+
+  <main id="main">
+    <section class="notes-hero" aria-labelledby="notes-title">
+      <div class="container">
+        <a class="back-link" href="index.html">← Back to NIMELSSA Vault</a>
+        <p class="eyebrow">Release notes</p>
+        <h1 id="notes-title">NIMELSSA Vault <span class="text-accent">v1.3.8</span></h1>
+        <p class="notes-summary">v1.3.8 is a new signed release. fix(build): correct proposal cache file construction.</p>
+        <p class="notes-meta">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Latest release</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span>Released <span data-release-date>12 Nov 2026</span></span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span><span data-release-size>4.7 MB</span> download</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span><span data-installed-size>~18 MB</span> installed before downloads</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span>Android 8.0+</span>
+          <span class="meta-dot" aria-hidden="true">·</span>
+          <span><span data-download-count="1.3.8">0</span> <span data-download-label="1.3.8">downloads</span></span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section notes-section" aria-labelledby="release-notes-title">
+      <h2 id="release-notes-title" class="visually-hidden">NIMELSSA Vault v1.3.8 release notes</h2>
+      <div class="container notes-layout">
+        <article class="notes-content">
+          <h2 class="visually-hidden">Release details</h2>
+          <div class="callout">
+            <svg class="icon callout-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
+            <div><strong>Release v1.3.8.</strong> Install it once from this page, and later releases arrive through Settings → APP UPDATE. v1.1.1 was debug-signed and still needs a one-time uninstall before a release-signed build can install.</div>
+          </div>
+
+          <section id="summary">
+            <h2>Summary</h2>
+            <p>v1.3.8 is a new signed release. fix(build): correct proposal cache file construction.</p>
+            <p>The changelog below lists the changes included in this build.</p>
+            <p>The in-app updater, three-lifeline policy, and SHA-256, package name, <code>versionCode</code>, and signing-certificate checks are unchanged.</p>
+
+
+
+
+          </section>
+
+          <section id="features">
+            <h2>Key Features</h2>
+            <ul>
+              <li><strong>Version:</strong> <code>versionCode 13</code> / <code>versionName 1.3.8</code>.</li>
+              <li><strong>Signed APK:</strong> 4.7 MB download.</li>
+              <li><strong>What changed:</strong> fix(build): correct proposal cache file construction.</li>
+              <li><strong>Verified install:</strong> SHA-256, package name, <code>versionCode</code>, and signing certificate are checked before install.</li>
+              <li><strong>In-place update:</strong> v1.3.1 and later use the same release signing key, so no uninstall is needed.</li>
+</ul>
+          </section>
+
+          <section id="installation">
+            <h2>Installation</h2>
+            <ol>
+              <li>If you are on v1.1.1 (debug-signed), uninstall it once. Back up anything you need first.</li>
+              <li>Install <code>NIMELSSA-Vault-v1.3.8.apk</code> from the download card on this page, or update from Settings → APP UPDATE inside the app.</li>
+              <li>Android may ask you to allow installs from NIMELSSA Vault the first time. Grant it once; the permission is scoped to this app.</li>
+              <li>Open the app and sign in. Verify your email and complete the access gate if prompted.</li>
+              <li>Pinned files, saved resources, and a chosen Download location carry over; updating from v1.3.1 or later does not clear app data.</li>
+            </ol>
+          </section>
+
+          <section id="configuration">
+            <h2>Configuration</h2>
+            <ul>
+              <li>No new required keys and no <code>google-services.json</code> changes.</li>
+              <li>The update feed is the public <code>release.json</code> on this site; no GitHub account is required to check, download, or read the notes.</li>
+              <li>Android's install-unknown-apps permission is requested the first time the app hands an APK to the installer. It is app-scoped and can be revoked in Android settings.</li>
+              <li>Firestore rules, the access gate, and the Drive API key are unchanged from the previous release.</li>
+              <li>The Windows desktop client is a separate build with its own Drive key and is not affected by this release.</li>
+              <li>The download folder remains a user-selected Android SAF folder and is not a Firebase setting.</li>
+            </ul>
+          </section>
+
+          <section id="changelog">
+            <h2>Changelog</h2>
+            <h3>Changed</h3>
+            <ul>
+              <li>Version bumped to <code>versionCode 13</code> / <code>versionName 1.3.8</code>.</li>
+              <li>fix(build): correct proposal cache file construction</li>
+              <li>feat(proposals): owner-scoped tracker and atomic submissions</li>
+            </ul>
+
+
+
+
+          </section>
+
+          <section id="faq">
+            <h2>FAQ</h2>
+                                                            <div class="faq notes-faq">
+              <details class="faq-item" name="release-faq">
+                <summary><span>What changed in v1.3.8?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer">
+                  <p>fix(build): correct proposal cache file construction. See the changelog above for the full list.</p>
+                </div>
+              </details>
+
+              <details class="faq-item" name="release-faq">
+                <summary><span>Do I need to reinstall?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer">
+                  <p>No reinstall is needed from v1.3.1 or later. Those builds share the same release signing key and update in place. v1.1.1 was debug-signed and still needs a one-time uninstall, which clears app-private files; Firebase-backed data returns after sign-in.</p>
+                </div>
+              </details>
+
+              <details class="faq-item" name="release-faq">
+                <summary><span>Is the updater verified?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer">
+                  <p>The release APK passes the unit suite, the R8 release build, and <code>apksigner</code> verification in CI. The app also checks SHA-256, package name, <code>versionCode</code>, and the signing certificate before install.</p>
+                </div>
+              </details>
+
+              <details class="faq-item" name="release-faq">
+                <summary><span>Does this affect the Windows desktop client?</span><span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer">
+                  <p>No. The desktop client is a separate read-only build with its own Drive key and configuration. This release only refreshes the Android APK and its public download feed.</p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section id="credits">
+            <h2>Credits</h2>
+            <div class="notes-credits">
+              <p><strong>AGBOOLA ISRAEL OLUWAGBOGO</strong><a href="mailto:israelagboola53@gmail.com">israelagboola53@gmail.com</a></p>
+            </div>
+          </section>
+        </article>
+
+        <aside class="notes-sidebar">
+          <div class="notes-card" id="download">
+            <p class="release-label"><span class="status-dot" aria-hidden="true"></span> Latest release</p>
+            <p class="release-version" data-release-version>v1.3.8</p>
+            <p class="release-date">Released <span data-release-date>12 Nov 2026</span></p>
+            <p class="release-meta">
+              <span><span data-release-size>4.7 MB</span> download</span>
+              <span class="meta-dot" aria-hidden="true">·</span>
+              <span><span data-installed-size>~18 MB</span> installed</span>
+              <span class="meta-dot" aria-hidden="true">·</span>
+              <span>Android 8.0+</span>
+              <span class="meta-dot" aria-hidden="true">·</span>
+              <span>Release-signed</span>
+              <span class="meta-dot" aria-hidden="true">·</span>
+              <span><span data-download-count="1.3.8">0</span> <span data-download-label="1.3.8">downloads</span></span>
+            </p>
+
+            <a class="btn btn-primary btn-lg btn-block" href="https://github.com/isygold1/nimelssa-vault/releases/download/v1.3.8/NIMELSSA-Vault-v1.3.8.apk" download data-download-link>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-download"/></svg>
+              Download APK
+            </a>
+
+            <p class="space-note">On-disk size starts at about <span data-installed-size>~18 MB</span> and grows mostly with the course files you download. The APK itself is <span data-release-size>4.7 MB</span>.</p>
+
+            <div class="checksum">
+              <span class="checksum-label">SHA-256</span>
+              <code data-release-sha-short>bef731e4…1a17</code>
+              <button class="copy-btn" type="button" data-copy-sha data-full-sha="bef731e4f59a5d97fd9ccdbbfcb813789bc77de69f37a36e83707a0105b41a17" aria-label="Copy SHA-256">
+                <svg class="icon copy-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-copy"/></svg>
+                <svg class="icon check-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
+              </button>
+            </div>
+
+            <a class="release-notes-link" href="index.html#download">Verify the download on the main page
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+            </a>
+          </div>
+
+          <nav class="notes-toc" aria-label="On this page">
+            <h2>On this page</h2>
+            <a href="#download">Download</a>
+            <a href="#summary">Summary</a>
+            <a href="#features">Key features</a>
+            <a href="#installation">Installation</a>
+            <a href="#configuration">Configuration</a>
+            <a href="#changelog">Changelog</a>
+            <a href="#faq">FAQ</a>
+            <a href="#credits">Credits</a>
+          </nav>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="NIMELSSA Vault home">
+            <img class="brand-crest" src="assets/img/crest.png" alt="" width="48" height="48">
+            <span class="brand-name">NIMELSSA <b>VAULT</b></span>
+          </a>
+          <p class="footer-tagline">Your go-to MLS library.</p>
+          <p>Lecture notes, past questions, textbooks, proposals, offline reading, and a cleaner course catalog — built for NIMELSSA UNILORIN.</p>
+        </div>
+
+        <nav class="footer-col" aria-label="Footer">
+          <h3>Explore</h3>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#screens">Screenshots</a>
+          <a href="index.html#install">Install</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="index.html#releases">Releases</a>
+          <a href="release-notes.html">Release notes</a>
+        </nav>
+
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <a href="mailto:israelagboola53@gmail.com">israelagboola53@gmail.com</a>
+          <a href="mailto:israelagboola53@gmail.com?subject=NIMELSSA%20Vault%20report">Report an issue</a>
+          <a href="index.html#download">Download APK</a>
+          <a href="#main">Back to top</a>
+        </div>
+      </div>
+
+      <div class="footer-legal">
+        <p><strong>Independent student project.</strong> Not affiliated with or endorsed by NIMELSSA or the University of Ilorin. The NIMELSSA emblem is used with permission of the NIMELSSA President. AI assistance tools were used in the creation and debugging of this project.</p>
+        <p>Built by <strong>AGBOOLA ISRAEL OLUWAGBOGO</strong> · <a href="mailto:israelagboola53@gmail.com">israelagboola53@gmail.com</a></p>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 AGBOOLA ISRAEL OLUWAGBOGO. All rights reserved. NIMELSSA Vault is proprietary.</span>
+        <span><span data-release-version>v1.3.8</span> · Android 8.0+ · Release-signed</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

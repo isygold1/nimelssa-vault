@@ -1,10 +1,10 @@
 {
-  "version": "1.3.8",
-  "versionCode": 13,
-  "apkUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/v1.3.8/NIMELSSA-Vault-v1.3.8.apk",
-  "sizeBytes": 4679393,
+  "version": "1.3.9",
+  "versionCode": 14,
+  "apkUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/v1.3.9/NIMELSSA-Vault-v1.3.9.apk",
+  "sizeBytes": 4680333,
   "installedSizeLabel": "~18 MB",
-  "sha256": "bef731e4f59a5d97fd9ccdbbfcb813789bc77de69f37a36e83707a0105b41a17",
+  "sha256": "35aac8bea068ced788df496fc9f97c55f9869587c5171980fcd83c7b296f7873",
   "certSha1": "c6a59025ddc8ad47458d99b394607db97d2a887c",
   "releasedAt": "2026-11-12",
   "minAndroid": "8.0",
@@ -12,10 +12,10 @@
   "notesUrl": "release-notes.html",
   "forceAfterCancels": 3,
   "highlights": [
-    "fix(build): correct proposal cache file construction.",
-    "feat(proposals): owner-scoped tracker and atomic submissions."
+    "feat(proposals): make ownership and notifications email-change safe."
   ],
   "downloads": {
+    "1.3.9": 0,
     "1.3.8": 0,
     "1.3.7": 0,
     "1.3.6": 0,
