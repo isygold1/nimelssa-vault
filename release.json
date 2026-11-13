@@ -1,10 +1,10 @@
 {
-  "version": "1.4.3",
-  "versionCode": 18,
-  "apkUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/v1.4.3/NIMELSSA-Vault-v1.4.3.apk",
-  "sizeBytes": 4687081,
+  "version": "1.4.4",
+  "versionCode": 19,
+  "apkUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/v1.4.4/NIMELSSA-Vault-v1.4.4.apk",
+  "sizeBytes": 4691149,
   "installedSizeLabel": "~18 MB",
-  "sha256": "fe43806fe9f2d91ce749b590d1968083ade1e13d00ac08fae7ebe770306f36aa",
+  "sha256": "b97d251b6c66bb7a586b48a2933f47e04492cf0f0c3b30a48e11e9f77e3d5242",
   "certSha1": "c6a59025ddc8ad47458d99b394607db97d2a887c",
   "releasedAt": "2026-11-13",
   "minAndroid": "8.0",
@@ -12,9 +12,11 @@
   "notesUrl": "release-notes.html",
   "forceAfterCancels": 3,
   "highlights": [
-    "fix(workspace): clear unpinned recents on X."
+    "feat(auth): remember the last three sign-in emails.",
+    "ui: live presence dot, grouped drawer, inventory chip counts."
   ],
   "downloads": {
+    "1.4.4": 0,
     "1.4.3": 0,
     "1.4.2": 0,
     "1.4.1": 0,
