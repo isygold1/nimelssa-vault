@@ -1,10 +1,10 @@
 {
-  "version": "1.4.1",
-  "versionCode": 16,
-  "apkUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/v1.4.1/NIMELSSA-Vault-v1.4.1.apk",
-  "sizeBytes": 4685025,
+  "version": "1.4.2",
+  "versionCode": 17,
+  "apkUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/v1.4.2/NIMELSSA-Vault-v1.4.2.apk",
+  "sizeBytes": 4686985,
   "installedSizeLabel": "~18 MB",
-  "sha256": "45dbc20f7259556960793ce65859285d14481d8a4567c0ccf1f802918d76b1bd",
+  "sha256": "dc2cc3263530d2122407140d92e14d8773eb670c0c0ff3cbdf48337c522968b2",
   "certSha1": "c6a59025ddc8ad47458d99b394607db97d2a887c",
   "releasedAt": "2026-11-13",
   "minAndroid": "8.0",
@@ -12,9 +12,11 @@
   "notesUrl": "release-notes.html",
   "forceAfterCancels": 3,
   "highlights": [
-    "feat(ui): move proposal history into a drawer destination."
+    "ui: add drawer status dot, fix reader WebView leaks, bump 1.4.2.",
+    "ui: use accessible icon button for clear recents."
   ],
   "downloads": {
+    "1.4.2": 0,
     "1.4.1": 0,
     "1.4.0": 0,
     "1.3.9": 0,
