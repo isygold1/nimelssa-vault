@@ -1,11 +1,31 @@
 {
-  "version": "1.4.0",
+  "version": "1.4.1",
   "channel": "preview",
-  "installerUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/desktop-v1.4.0/NIMELSSA-Vault-1.4.0.exe",
-  "sizeBytes": 67112960,
-  "sha256": "7ce62db08daead59d6782de49f9673356689452cccb6dea2381da7a1fdb63d19",
-  "releasedAt": "2026-11-11",
+  "installerUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/desktop-v1.4.1/NIMELSSA-Vault-1.4.1.exe",
+  "sizeBytes": 67231744,
+  "sha256": "2de1dbf3bc547bca676c921067ec3637d701751badecdf18d786b85a40fd299a",
+  "releasedAt": "2026-11-13",
   "minWindows": "Windows 10/11 (64-bit)",
   "signed": false,
-  "notesUrl": "windows-release-notes.html"
+  "notesUrl": "windows-release-notes.html",
+  "releaseUrl": "https://github.com/isygold1/nimelssa-vault/releases/tag/desktop-v1.4.1",
+  "summary": "v1.4.1 adds a branded launch splash, an in-app installer, and better PDF and PPTX opening.",
+  "highlights": [
+    "Branded launch splash, followed by the existing loading screen.",
+    "Settings → Updates checks the public desktop release, downloads the installer, and verifies its SHA-256 before launching it.",
+    "PDFs stay in the in-app reader; PPTX and other Office files open in the system default app."
+  ],
+  "status": [
+    "Preview, not stable: treat it as a working build for testing, not a final desktop release.",
+    "Unsigned: Windows SmartScreen will warn until the installer is code-signed and builds reputation.",
+    "Real-device pass: tested end to end on a Dell Latitude E7240, 8 GB RAM, 128 GB SSD, Windows 11 Pro 25H2. The exact OS build number was not recorded.",
+    "Still pending: a second clean Windows 10/11 virtual machine, an upgrade install from an older desktop build, and the final code-signing choice."
+  ],
+  "knownIssues": [
+    "SmartScreen warns because the installer is unsigned.",
+    "Only one real Windows machine has been exercised end to end.",
+    "Clean Windows 10/11 VM and upgrade-install validation are still pending.",
+    "desktop-parity is not merged, so desktop fixes can land separately from Android releases."
+  ],
+  "commit": "6e186611735775da49d7caf1a5e881018523466f"
 }
