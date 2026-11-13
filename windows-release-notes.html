@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NIMELSSA Vault Desktop v1.4.1 Preview — Release Notes</title>
-  <meta name="description" content="Release notes for the NIMELSSA Vault Windows desktop preview v1.4.1.">
+  <title>NIMELSSA Vault Desktop v1.4.2 Preview — Release Notes</title>
+  <meta name="description" content="Release notes for the NIMELSSA Vault Windows desktop preview v1.4.2.">
   <link rel="icon" type="image/png" href="assets/img/crest.png">
   <link rel="apple-touch-icon" href="assets/img/crest.png">
   <link rel="manifest" href="site.webmanifest">
@@ -50,21 +50,21 @@
       <div class="container">
         <a class="back-link" href="index.html">← Back to NIMELSSA Vault</a>
         <p class="eyebrow">Windows desktop preview</p>
-        <h1 id="notes-title">NIMELSSA Vault Desktop <span class="text-accent" data-win-version>v1.4.1</span></h1>
-        <p class="notes-summary">v1.4.1 adds a branded launch splash, an in-app installer, and better PDF and PPTX opening.</p>
+        <h1 id="notes-title">NIMELSSA Vault Desktop <span class="text-accent" data-win-version>v1.4.2</span></h1>
+        <p class="notes-summary">v1.4.2 adds a first-run Terms &amp; Privacy gate, desktop sign-up, remembered sign-in emails, and offline library resume.</p>
         <p class="notes-meta">
           <span class="status-dot" aria-hidden="true"></span>
           <span>Preview</span>
           <span class="meta-dot" aria-hidden="true">·</span>
           <span>Released <span data-win-date>13 Nov 2026</span></span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span><span data-win-size>67.2 MB</span> installer</span>
+          <span><span data-win-size>67.3 MB</span> installer</span>
           <span class="meta-dot" aria-hidden="true">·</span>
           <span>Windows 10/11 (64-bit)</span>
           <span class="meta-dot" aria-hidden="true">·</span>
           <span>Unsigned</span>
           <span class="meta-dot" aria-hidden="true">·</span>
-          <span><span data-download-count="desktop-1.4.1">0</span> <span data-download-label="desktop-1.4.1">downloads</span></span>
+          <span><span data-download-count="desktop-1.4.2">0</span> <span data-download-label="desktop-1.4.2">downloads</span></span>
         </p>
       </div>
     </section>
@@ -82,8 +82,8 @@
 
           <section id="summary">
             <h2>Summary</h2>
-            <p>v1.4.1 adds a branded launch splash, an in-app installer, and better PDF and PPTX opening.</p>
-            <p>It was built from the <code>desktop-parity</code> branch at commit <code>6e186611735775da49d7caf1a5e881018523466f</code>. That branch has not been merged into <code>test3</code>.</p>
+            <p>v1.4.2 adds a first-run Terms &amp; Privacy gate, desktop sign-up, remembered sign-in emails, and offline library resume.</p>
+            <p>It was built from the <code>desktop-parity</code> branch at commit <code>815b8fa46ae07f3a7d4f08810138ec5e624fd27b</code>. That branch has not been merged into <code>test3</code>.</p>
           </section>
 
           <section id="status">
@@ -99,7 +99,7 @@
           <section id="installation">
             <h2>Installation</h2>
             <ol>
-              <li>Download <code>NIMELSSA-Vault-1.4.1.exe</code> from the card on this page.</li>
+              <li>Download <code>NIMELSSA-Vault-1.4.2.exe</code> from the card on this page.</li>
               <li>Verify the SHA-256 with <code>certutil</code> before running it.</li>
               <li>Run the installer. If SmartScreen appears, choose <em>More info → Run anyway</em> only after the hash matches.</li>
               <li>Open NIMELSSA Vault and sign in with an approved account.</li>
@@ -110,8 +110,8 @@
           <section id="verify">
             <h2>Verify</h2>
             <p>Compare the full SHA-256 before running the installer:</p>
-            <code class="hash" data-win-sha>2de1dbf3bc547bca676c921067ec3637d701751badecdf18d786b85a40fd299a</code>
-            <pre><code>certutil -hashfile NIMELSSA-Vault-1.4.1.exe SHA256</code></pre>
+            <code class="hash" data-win-sha>541f877849ec81feff2d6c8cefe856c78546ff8d87323857f08820987806eaea</code>
+            <pre><code>certutil -hashfile NIMELSSA-Vault-1.4.2.exe SHA256</code></pre>
           </section>
 
           <section id="configuration">
@@ -130,6 +130,8 @@
               <li>SmartScreen warns because the installer is unsigned.</li>
               <li>Only one real Windows machine has been exercised end to end.</li>
               <li>Clean Windows 10/11 VM and upgrade-install validation are still pending.</li>
+              <li>Offline resume requires one successful online library load on this machine.</li>
+              <li>New desktop accounts still need admin approval before the library unlocks.</li>
               <li>desktop-parity is not merged, so desktop fixes can land separately from Android releases.</li>
             </ul>
           </section>
@@ -171,19 +173,19 @@
         <aside class="notes-sidebar">
           <div class="notes-card" id="download">
             <p class="release-label"><span class="status-dot" aria-hidden="true"></span> Windows preview</p>
-            <p class="release-version" data-win-version>v1.4.1</p>
+            <p class="release-version" data-win-version>v1.4.2</p>
             <p class="release-date">Released <span data-win-date>13 Nov 2026</span></p>
             <p class="release-meta">
-              <span><span data-win-size>67.2 MB</span> installer</span>
+              <span><span data-win-size>67.3 MB</span> installer</span>
               <span class="meta-dot" aria-hidden="true">·</span>
               <span>Windows 10/11 (64-bit)</span>
               <span class="meta-dot" aria-hidden="true">·</span>
               <span>Unsigned</span>
               <span class="meta-dot" aria-hidden="true">·</span>
-              <span><span data-download-count="desktop-1.4.1">0</span> <span data-download-label="desktop-1.4.1">downloads</span></span>
+              <span><span data-download-count="desktop-1.4.2">0</span> <span data-download-label="desktop-1.4.2">downloads</span></span>
             </p>
 
-            <a class="btn btn-primary btn-lg btn-block" href="https://github.com/isygold1/nimelssa-vault/releases/download/desktop-v1.4.1/NIMELSSA-Vault-1.4.1.exe" download data-win-download>
+            <a class="btn btn-primary btn-lg btn-block" href="https://github.com/isygold1/nimelssa-vault/releases/download/desktop-v1.4.2/NIMELSSA-Vault-1.4.2.exe" download data-win-download>
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-download"/></svg>
               Download installer
             </a>
@@ -192,14 +194,14 @@
 
             <div class="checksum">
               <span class="checksum-label">SHA-256</span>
-              <code data-win-sha-short>2de1dbf3…299a</code>
-              <button class="copy-btn" type="button" data-copy-win-sha data-full-sha="2de1dbf3bc547bca676c921067ec3637d701751badecdf18d786b85a40fd299a" aria-label="Copy Windows SHA-256">
+              <code data-win-sha-short>541f8778…eaea</code>
+              <button class="copy-btn" type="button" data-copy-win-sha data-full-sha="541f877849ec81feff2d6c8cefe856c78546ff8d87323857f08820987806eaea" aria-label="Copy Windows SHA-256">
                 <svg class="icon copy-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-copy"/></svg>
                 <svg class="icon check-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg>
               </button>
             </div>
 
-            <a class="release-notes-link" href="https://github.com/isygold1/nimelssa-vault/releases/tag/desktop-v1.4.1" target="_blank" rel="noopener">View GitHub release
+            <a class="release-notes-link" href="https://github.com/isygold1/nimelssa-vault/releases/tag/desktop-v1.4.2" target="_blank" rel="noopener">View GitHub release
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"/></svg>
             </a>
           </div>

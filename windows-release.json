@@ -1,19 +1,20 @@
 {
-  "version": "1.4.1",
+  "version": "1.4.2",
   "channel": "preview",
-  "installerUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/desktop-v1.4.1/NIMELSSA-Vault-1.4.1.exe",
-  "sizeBytes": 67231744,
-  "sha256": "2de1dbf3bc547bca676c921067ec3637d701751badecdf18d786b85a40fd299a",
+  "installerUrl": "https://github.com/isygold1/nimelssa-vault/releases/download/desktop-v1.4.2/NIMELSSA-Vault-1.4.2.exe",
+  "sizeBytes": 67293184,
+  "sha256": "541f877849ec81feff2d6c8cefe856c78546ff8d87323857f08820987806eaea",
   "releasedAt": "2026-11-13",
   "minWindows": "Windows 10/11 (64-bit)",
   "signed": false,
   "notesUrl": "windows-release-notes.html",
-  "releaseUrl": "https://github.com/isygold1/nimelssa-vault/releases/tag/desktop-v1.4.1",
-  "summary": "v1.4.1 adds a branded launch splash, an in-app installer, and better PDF and PPTX opening.",
+  "releaseUrl": "https://github.com/isygold1/nimelssa-vault/releases/tag/desktop-v1.4.2",
+  "summary": "v1.4.2 adds a first-run Terms & Privacy gate, desktop sign-up, remembered sign-in emails, and offline library resume.",
   "highlights": [
-    "Branded launch splash, followed by the existing loading screen.",
-    "Settings → Updates checks the public desktop release, downloads the installer, and verifies its SHA-256 before launching it.",
-    "PDFs stay in the in-app reader; PPTX and other Office files open in the system default app."
+    "First-run Terms & Privacy gate with the transparent NIMELSSA lockup and a progress bar before sign-in.",
+    "Sign up for a desktop account from the login page; recent emails autofill, passwords are never stored.",
+    "Reopen the app offline and continue from the saved library; signing out clears the cached snapshot.",
+    "The black brand splash panel is gone; the product splash now owns the progress bar."
   ],
   "status": [
     "Preview, not stable: treat it as a working build for testing, not a final desktop release.",
@@ -25,7 +26,9 @@
     "SmartScreen warns because the installer is unsigned.",
     "Only one real Windows machine has been exercised end to end.",
     "Clean Windows 10/11 VM and upgrade-install validation are still pending.",
+    "Offline resume requires one successful online library load on this machine.",
+    "New desktop accounts still need admin approval before the library unlocks.",
     "desktop-parity is not merged, so desktop fixes can land separately from Android releases."
   ],
-  "commit": "6e186611735775da49d7caf1a5e881018523466f"
+  "commit": "815b8fa46ae07f3a7d4f08810138ec5e624fd27b"
 }
