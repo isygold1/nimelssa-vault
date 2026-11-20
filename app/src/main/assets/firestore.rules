@@ -1,0 +1,44 @@
+/**
+ * Firestore Rules for NIMelSSA app
+ * Per handoff specifications:
+ * - users/{uid} creation requires: role=student, approved=false, valid matric (:59)
+ * - access_requests/{uid} creation requires: verified token email (:141)
+ * - rep_requests requires: uid + status
+ */
+version = '2'
+
+service cloud.firestore {
+    match /databases/{database}/documents {
+        
+        // Users collection - requires role=student, approved=false, valid matric
+        match /users/{uid} {
+            allow read: if true;
+            allow create: if request.auth != null
+                && request.resource.data.keys.hasAll(['role', 'approved', 'matric', 'name', 'level'])
+                && request.resource.data.role == 'student'
+                && request.resource.data.approved == false
+                && string.match(request.resource.data.matric, r'^\d{7,10}$');
+            // Deny all other writes (update/delete)
+            allow update: if false;
+            allow delete: if false;
+        }
+        
+        // Access requests collection - requires verified email
+        match /access_requests/{uid} {
+            allow read: if true;
+            allow create: if request.auth != null
+                && request.auth.token.email_verified == true;
+            allow update: if request.auth != null;
+            allow delete: if false;
+        }
+        
+        // Rep requests collection - requires uid + status
+        match /rep_requests/{repRequestId} {
+            allow read: if true;
+            allow create: if request.auth != null
+                && request.resource.data.keys.hasAll(['uid', 'status']);
+            allow update: if false;
+            allow delete: if false;
+        }
+    }
+}

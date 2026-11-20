@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        google()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode = 'strict'
+    repositories {
+        mavenCentral()
+        google()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+rootProject.name = "NIMELSSA"
+include ':app'

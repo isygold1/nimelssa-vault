@@ -1,0 +1,18 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.NIMelSSA" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary color. -->
+        <item name="colorPrimary">#1976D2</item>
+        <!-- Primary color when focused. -->
+        <item name="colorPrimaryContainer">#BBDEFB</item>
+        <!-- Secondary color. -->
+        <item name="colorSecondary">#673AB7</item>
+        <item name="colorSecondaryContainer">#EAD0FF</item>
+        <!-- Background color. -->
+        <item name="colorBackground">#F5F5F5</item>
+        <!-- Surface color. -->
+        <item name="colorSurface">#FFFFFF</item>
+        <!-- On surface color. -->
+        <item name="colorOnSurface">#212121</item>
+    </style>
+</resources>

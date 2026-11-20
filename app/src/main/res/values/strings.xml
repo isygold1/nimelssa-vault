@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">NIMelSSA</string>
+    <string name="sign_in">Sign in</string>
+    <string name="create_account">Create account</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="matric_number">Matric number</string>
+    <string name="level">Level</string>
+    <string name="request_access">Request access</string>
+    <string name="pending_approval">Access request submitted. Pending approval.</string>
+    <string name="built_by">Built by Agboola Israel Oluwagbogo, an MLS student at the University of Ilorin — not owned or endorsed by the University.</string>
+    <string name="github">GitHub @isygold</string>
+    <string name="discord">Discord isygold</string>
+    <string name="telegram">Telegram t.me/isygold</string>
+    <string name="about">About</string>
+    <string name="pdf_reader">PDF Reader</string>
+    <string name="settings">Settings</string>
+</resources>
